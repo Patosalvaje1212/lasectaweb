@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@font-face {
+  font-family: 'Teutonic No3';
+  src: url('/fonts/teutonic3.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dum1';
+  src: url('/fonts/dum1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Blood on the Clocktower Theme */
+@theme {
+  --font-display: "Dum1", "Cinzel", serif;
+  --font-body: "Crimson Text", serif;
+
+  /* Core Tones */
+  --color-background: var(--theme-background);
+  --color-surface: var(--theme-surface);
+  --color-surface-container-low: var(--theme-surface-low);
+  --color-surface-container: var(--theme-surface-container);
+  --color-surface-container-high: var(--theme-surface-high);
+  --color-surface-container-highest: var(--theme-surface-highest);
+
+  --color-on-surface: var(--theme-on-surface);
+  --color-on-surface-muted: var(--theme-on-surface-variant);
+
+  --color-outline-ghost: #3a322c;
+  /* Muted brown/grey border */
+
+  /* Ritual States Mapping */
+  --color-theme-main: var(--theme-ritual-main);
+  --color-theme-container: var(--theme-ritual-container);
+}
+
+@layer base {
+  :root {
+    /* Foundation Colors (Very dark charcoal, almost black) */
+    --theme-background: #0a0a0a;
+    --theme-surface: #121212;
+    --theme-surface-low: #181818;
+    --theme-surface-container: #1e1e1e;
+    --theme-surface-high: #242424;
+    --theme-surface-highest: #2c2c2c;
+
+    /* Text (Parchment/Off-white) */
+    --theme-on-surface: #dfd8c8;
+    --theme-on-surface-variant: #a69f92;
+
+    /* Primary (Violet / Light Purple) */
+    --theme-ritual-main: #b19cd9;
+    --theme-ritual-container: #4a3b69;
+  }
+
+  body {
+    background-color: var(--theme-background);
+    color: var(--theme-on-surface);
+    font-family: var(--font-body);
+    transition: background-color 0.5s ease;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/bg-pattern.png');
+    background-size: 400px;
+    background-repeat: repeat;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-transform: uppercase;
+  }
+}
