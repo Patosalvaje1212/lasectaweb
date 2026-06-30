@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { X, Check } from 'lucide-react';
+import Button from './Button';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -79,24 +80,26 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
           <h2 className="text-2xl font-display text-on-surface">
             {isLogin ? 'Iniciar Sesión' : 'Unirse a la Secta'}
           </h2>
-          <button onClick={onClose} className="text-on-surface-muted hover:text-theme-main transition-colors">
+          <Button onClick={onClose} variant="text" className="text-on-surface-muted hover:text-theme-main transition-colors">
             <X size={24} />
-          </button>
+          </Button>
         </div>
 
         <div className="flex border-b border-outline-ghost">
-          <button
+          <Button
+            variant="text"
             className={`flex-1 py-3 font-display transition-colors ${isLogin ? 'bg-theme-main/10 text-theme-main border-b-2 border-theme-main' : 'text-on-surface-muted hover:bg-surface-high'}`}
             onClick={() => setIsLogin(true)}
           >
             Entrar
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="text"
             className={`flex-1 py-3 font-display transition-colors ${!isLogin ? 'bg-theme-main/10 text-theme-main border-b-2 border-theme-main' : 'text-on-surface-muted hover:bg-surface-high'}`}
             onClick={() => setIsLogin(false)}
           >
             Registro
-          </button>
+          </Button>
         </div>
 
         <div className="p-6 overflow-y-auto">
@@ -143,10 +146,11 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                   <label className="text-sm font-display text-on-surface-muted">Selecciona tu Avatar</label>
                   <div className="flex gap-3 overflow-x-auto pb-2">
                     {AVATAR_OPTIONS.map((avatar) => (
-                      <button
+                      <Button
                         key={avatar.id}
                         type="button"
                         onClick={() => selectAvatar(avatar.url)}
+                        variant="text"
                         className={`relative w-16 h-16 rounded overflow-hidden flex-shrink-0 transition-all ${formData.profilePicture === avatar.url ? 'ring-2 ring-theme-main ring-offset-2 ring-offset-surface' : 'opacity-70 hover:opacity-100 ring-1 ring-outline-ghost'}`}
                       >
                         <img src={avatar.url} alt={avatar.label} className="w-full h-full object-cover" />
@@ -155,16 +159,16 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                             <Check className="text-white drop-shadow-md" size={24} />
                           </div>
                         )}
-                      </button>
+                      </Button>
                     ))}
                   </div>
                 </div>
               </>
             )}
 
-            <button type="submit" className="mt-4 bg-theme-main text-background font-display font-medium py-3 rounded hover:bg-theme-main/90 transition-colors">
+            <Button type="submit" variant="primary" className="mt-4 py-3">
               {isLogin ? 'Entrar al Grimorio' : 'Completar Ritual'}
-            </button>
+            </Button>
           </form>
         </div>
       </div>

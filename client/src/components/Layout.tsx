@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import AuthModal from './AuthModal';
+import Button from './Button';
 
 const Layout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,25 +13,24 @@ const Layout = () => {
   const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <div className="min-h-screen flex flex-col selection:bg-theme-main selection:text-background overflow-x-hidden">
+    <div className="min-h-screen flex flex-col selection:bg-theme-main selection:text-background overflow-x-clip">
       {/* Dark Textured Header */}
       <header className="fixed top-0 w-full z-40 bg-theme-container backdrop-blur-sm border-b border-outline-ghost shadow-lg">
         <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:py-6 md:px-10">
           <div className="flex items-center gap-4 md:gap-6">
             <Link to="/" className="flex items-center gap-3 md:gap-5" onClick={closeMenu}>
               <img src="/log_la-secta.png" alt="Logo de La Secta" className="w-12 h-12 md:w-16 md:h-16 object-contain drop-shadow-[0_0_12px_var(--color-theme-main)]" />
-              <h1 className="text-3xl md:text-5xl font-normal tracking-tight text-white drop-shadow-lg whitespace-nowrap" style={{ fontFamily: "'Teutonic No3', 'Cinzel', serif" }}>
+              <h1 className="text-2xl md:text-4xl font-normal tracking-tight text-white drop-shadow-lg whitespace-nowrap" style={{ fontFamily: "'Teutonic No3', 'Cinzel', serif", transform: 'scaleX(0.7)', transformOrigin: 'left', display: 'inline-block' }}>
                 La Secta
               </h1>
             </Link>
             
             <nav className="hidden md:flex gap-6 ml-8 mt-2 items-center flex-wrap">
-              <Link to="/grimorio" className="text-sm lg:text-base font-display text-on-surface-muted hover:text-on-surface transition-colors">Grimorio</Link>
-              <Link to="/escrituras" className="text-sm lg:text-base font-display text-on-surface-muted hover:text-on-surface transition-colors">Escrituras</Link>
-              <Link to="/plaza" className="text-sm lg:text-base font-display text-on-surface-muted hover:text-on-surface transition-colors">Plaza</Link>
-              <Link to="/calendario" className="text-sm lg:text-base font-display text-on-surface-muted hover:text-on-surface transition-colors">Calendario</Link>
-              <Link to="/muro" className="text-sm lg:text-base font-display text-on-surface-muted hover:text-on-surface transition-colors">Muro</Link>
-              <Link to="/unete" className="text-sm lg:text-base font-display text-theme-main font-medium hover:text-on-surface transition-colors">Únete</Link>
+              <Link to="/grimorio" className="text-lg lg:text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors">Grimorio</Link>
+              <Link to="/escrituras" className="text-lg lg:text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors">Escrituras</Link>
+              <Link to="/plaza" className="text-lg lg:text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors">Plaza</Link>
+              <Link to="/calendario" className="text-lg lg:text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors">Calendario</Link>
+              <Link to="/unete" className="text-lg lg:text-xl font-display text-theme-main font-medium hover:text-on-surface transition-colors">Únete</Link>
             </nav>
           </div>
           
@@ -47,9 +47,9 @@ const Layout = () => {
                 </div>
               </Link>
             ) : (
-              <button onClick={() => setIsAuthModalOpen(true)} className="hidden md:flex bg-theme-main text-background px-6 py-2 rounded font-display font-medium hover:bg-theme-main/90 transition-colors">
+              <Button onClick={() => setIsAuthModalOpen(true)} variant="primary" className="hidden md:flex px-6 py-2 opacity-50 cursor-not-allowed" disabled>
                 Identificarse
-              </button>
+              </Button>
             )}
 
             {/* Mobile Hamburger Button */}
@@ -92,12 +92,14 @@ const Layout = () => {
             </div>
           ) : (
             <div className="mb-8 pb-8 border-b border-outline-ghost">
-              <button 
+              <Button 
                 onClick={() => { setIsAuthModalOpen(true); closeMenu(); }}
-                className="w-full bg-theme-main text-background py-3 rounded font-display font-medium hover:bg-theme-main/90 transition-colors"
+                variant="primary"
+                className="w-full py-3 opacity-50 cursor-not-allowed"
+                disabled
               >
                 Identificarse
-              </button>
+              </Button>
             </div>
           )}
 
@@ -115,17 +117,14 @@ const Layout = () => {
             <Link to="/calendario" onClick={closeMenu} className="text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors flex items-center gap-4">
               <span className="w-1.5 h-1.5 rounded-full bg-theme-main/50"></span> Calendario
             </Link>
-            <Link to="/muro" onClick={closeMenu} className="text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors flex items-center gap-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-theme-main/50"></span> Muro
-            </Link>
             <Link to="/unete" onClick={closeMenu} className="text-xl font-display text-theme-main font-medium hover:text-theme-main transition-colors flex items-center gap-4 mt-4">
               <span className="w-1.5 h-1.5 rounded-full bg-theme-main"></span> Únete
             </Link>
             
             {isAuthenticated && (
-              <button onClick={() => { logout(); closeMenu(); }} className="text-xl font-display text-red-400 hover:text-red-300 transition-colors flex items-center gap-4 mt-4 text-left">
+              <Button onClick={() => { logout(); closeMenu(); }} variant="text" className="text-xl font-display text-red-400 hover:text-red-300 transition-colors flex items-center gap-4 mt-4 text-left">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-400"></span> Cerrar Sesión
-              </button>
+              </Button>
             )}
           </nav>
           

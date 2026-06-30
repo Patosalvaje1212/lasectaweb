@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import Button from '../components/Button';
 
 const Profile = () => {
   const { user, token, isAuthenticated, updateUser } = useAuth();
@@ -83,13 +84,13 @@ const Profile = () => {
           
           <div className="absolute top-10 right-10 flex gap-4">
             {!isEditing ? (
-              <button onClick={() => setIsEditing(true)} className="bg-surface-high border border-outline-ghost px-4 py-2 rounded text-on-surface font-display hover:text-theme-main transition-colors">
+              <Button onClick={() => setIsEditing(true)} variant="secondary" className="px-4 py-2">
                 Editar Perfil
-              </button>
+              </Button>
             ) : (
-              <button onClick={() => setIsEditing(false)} className="bg-surface-high border border-outline-ghost px-4 py-2 rounded text-on-surface font-display hover:text-red-400 transition-colors">
+              <Button onClick={() => setIsEditing(false)} variant="danger" className="px-4 py-2">
                 Cancelar
-              </button>
+              </Button>
             )}
           </div>
 
@@ -150,9 +151,9 @@ const Profile = () => {
                   <input name="telegramUsername" value={formData.telegramUsername} onChange={handleChange} className="bg-surface border border-outline-ghost rounded px-3 py-2 text-on-surface focus:outline-none focus:border-theme-main transition-colors" />
                 </div>
               </div>
-              <button type="submit" className="bg-theme-main text-background font-display font-medium py-2 px-6 rounded hover:bg-theme-main/90 transition-colors">
+              <Button type="submit" variant="primary" className="py-2 px-6">
                 Guardar Cambios
-              </button>
+              </Button>
             </form>
           )}
 

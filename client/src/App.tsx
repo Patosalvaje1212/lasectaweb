@@ -7,7 +7,6 @@ import Escrituras from './pages/Escrituras';
 import Plaza from './pages/Plaza';
 import Calendario from './pages/Calendario';
 import Unete from './pages/Unete';
-import Muro from './pages/Muro';
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
           <Route path="plaza" element={<Plaza />} />
           <Route path="calendario" element={<Calendario />} />
           <Route path="unete" element={<Unete />} />
-          <Route path="muro" element={<Muro />} />
           <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>

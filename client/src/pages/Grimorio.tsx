@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Cita from '../components/Cita';
 
 const Grimorio = () => {
   return (
@@ -7,9 +8,9 @@ const Grimorio = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none"></div>
         <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
         <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
-        
-        <img src="/about_banner_wide.jpg" alt="Dark Library" className="w-full h-full object-cover object-center grayscale-[0.5] opacity-80" />
-        
+
+        <img src="/calendar_banner_wide.jpg" alt="Calendario" className="w-full h-full object-cover object-center grayscale-[0.5] opacity-80" />
+
         <div className="absolute bottom-12 left-0 right-0 w-full max-w-5xl mx-auto px-8 z-20">
           <h2 className="text-5xl font-display text-on-surface drop-shadow-lg tracking-normal">El Grimorio</h2>
         </div>
@@ -17,17 +18,27 @@ const Grimorio = () => {
       <div className="max-w-5xl w-full mx-auto px-8 py-10 relative z-20 -mt-20">
         <div className="bg-surface border border-outline-ghost rounded shadow-2xl p-10 pt-8 relative">
           <div className="bg-surface-low p-8 border border-outline-ghost shadow-inner mb-8 relative z-20 space-y-6">
-            <div>
-              <h3 className="text-2xl font-display text-theme-main mb-3">¿Qué es Blood on the Clocktower?</h3>
-              <p className="text-on-surface text-lg font-body leading-relaxed">
-                Blood on the Clocktower (BotC) es el "hermano mayor" de juegos de deducción social como Los Hombres Lobo de Castronegro. Es un juego de engaño, lógica y asesinatos nocturnos donde la muerte no es el final: los jugadores muertos siguen hablando e influyendo en la partida. Nadie es un simple aldeano, todos tienen un rol único con un poder especial.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-2xl font-display text-theme-main mb-3">¿Cómo Jugamos?</h3>
-              <p className="text-on-surface text-lg font-body leading-relaxed">
-                Utilizamos <strong>Villacuervos</strong> para la gestión del tablero virtual y los grimorios del cuentacuentos, combinando la experiencia con <strong>Telegram</strong> (para el chat de voz, grupos privados y llamadas). Somos una comunidad activa que disfruta de las conspiraciones, la interpretación y, sobre todo, el buen ambiente.
-              </p>
+            <Cita texto="El fuego de la plaza consume mi última coartada. Escucho susurros en las esquinas; no son los vivos quienes me preocupan, sino los ojos fríos de mis víctimas de cada noche. Aunque sus cuerpos yazcan sin vida,* sus espíritus siguen votando... y hoy me señalan a mí*." />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
+              <div>
+                <h3 className="text-xl font-display text-theme-main mb-3">¿Qué es Blood in the Clocktower?</h3>
+                <p className="text-on-surface text-base font-body leading-relaxed">
+                  Es un juego de deducción social para entre 5 y 20 jugadores en el que el bien y el mal libran una batalla de ingenio. Un Cuentacuentos guía la historia, mientras que cada participante recibe un rol único con habilidades especiales. Lo que lo hace especial es que los jugadores asesinados siguen participando activamente, teniendo un voto fantasmal para influir en el destino del pueblo.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-display text-theme-main mb-3">¿Cómo jugamos?</h3>
+                <p className="text-on-surface text-base font-body leading-relaxed">
+                  En La Secta nos reunimos habitualmente de manera online. Utilizamos la plataforma <strong>Villacuervos</strong> para visualizar el grimorio y gestionar las interacciones del pueblo, y nos comunicamos a través de canales de voz dedicados en <strong>Telegram</strong>. La narración inmersiva, las alianzas secretas y las puñaladas por la espalda están garantizadas en cada sesión.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-display text-theme-main mb-3">¿Quiénes somos?</h3>
+                <p className="text-on-surface text-base font-body leading-relaxed">
+                  Somos una comunidad de apasionados por los juegos de deducción, el rol en vivo y el misterio. Nacimos de la pasión por Blood on the Clocktower y el deseo de crear un espacio acogedor y emocionante para jugadores de todos los niveles, desde principiantes que apenas aprenden a mentir hasta veteranos expertos en sembrar la duda.
+                </p>
+              </div>
             </div>
           </div>
           <Link to="/escrituras" className="inline-block text-theme-main hover:text-on-surface transition-colors font-display text-[15px] underline relative z-20">

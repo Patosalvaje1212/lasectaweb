@@ -1,78 +1,51 @@
+import Button from '../components/Button';
+import { Hourglass } from 'lucide-react';
+
 const Calendario = () => {
-    return (
-      <div className="flex flex-col w-full">
-        <div className="relative h-[45vh] w-full border-b border-outline-ghost bg-background flex justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
-          
-          <img src="/calendar_banner_wide.jpg" alt="Calendario" className="w-full h-full object-cover object-center grayscale-[0.5] opacity-80" />
-          
-          <div className="absolute bottom-12 left-0 right-0 w-full max-w-5xl mx-auto px-8 z-20">
-            <h2 className="text-5xl font-display text-on-surface drop-shadow-lg tracking-normal">El Calendario de Sacrificios</h2>
-          </div>
-        </div>
+  return (
+    <div className="flex flex-col w-full min-h-[80vh]">
+      {/* Header Banner */}
+      <div className="relative h-[45vh] w-full border-b border-outline-ghost bg-background flex justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
         
-        <div className="max-w-5xl w-full mx-auto px-8 py-10 relative z-20 -mt-20">
-          <div className="bg-surface border border-outline-ghost p-10 rounded shadow-2xl relative">
-            <div className="mb-10 text-center">
-              <p className="text-on-surface-muted text-lg italic font-body">Consulta las próximas noches de juego y los narradores al cargo.</p>
+        <img src="/about_banner_wide.jpg" alt="Dark Library" className="w-full h-full object-cover object-center grayscale-[0.5] opacity-80" />
+        
+        <div className="absolute bottom-12 left-0 right-0 w-full max-w-5xl mx-auto px-8 z-20">
+          <h2 className="text-5xl font-display text-on-surface drop-shadow-lg tracking-normal">El Calendario de Sacrificios</h2>
+        </div>
+      </div>
+      
+      {/* Main Container */}
+      <div className="max-w-3xl w-full mx-auto px-8 py-10 relative z-20 -mt-20 flex-1">
+        <div className="bg-surface border border-outline-ghost p-10 rounded shadow-2xl relative text-center flex flex-col items-center">
+          <div className="relative w-24 h-24 mb-6 flex items-center justify-center">
+            {/* Pulsing glow background */}
+            <div className="absolute inset-0 bg-theme-main/10 rounded-full animate-ping pointer-events-none"></div>
+            <div className="w-20 h-20 bg-theme-container/40 border border-theme-main/40 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(177,156,217,0.15)]">
+              <Hourglass className="w-10 h-10 text-theme-main animate-pulse" />
             </div>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Card de Partida */}
-              <div className="bg-surface-low border border-outline-ghost rounded p-6 shadow-md relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-2 h-full bg-theme-main"></div>
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-2xl font-display text-on-surface">Trouble Brewing</h3>
-                    <p className="text-theme-main font-display text-sm">Edición para Principiantes</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-xl font-display text-on-surface">Hoy</p>
-                    <p className="text-on-surface-muted text-sm">22:00h</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 border-t border-outline-ghost/50 pt-4 mt-4">
-                  <div className="w-8 h-8 rounded-full bg-surface-highest border border-outline-ghost flex items-center justify-center overflow-hidden">
-                    <img src="/avatar.png" alt="Storyteller" className="w-full h-full object-cover grayscale" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-on-surface-muted">Storyteller</p>
-                    <p className="text-sm font-display text-on-surface">Alice</p>
-                  </div>
-                </div>
-              </div>
+          <h3 className="text-3xl font-display text-theme-main mb-4">Calendario en Preparación</h3>
+          
+          <p className="text-on-surface-muted text-lg font-body leading-relaxed max-w-lg mb-8">
+            Nuestros Storytellers están alineando los astros para programar las próximas noches de juego. Los rituales de invocación y los horarios de las partidas principales se revelarán al Culto muy pronto.
+          </p>
 
-              {/* Card de Partida 2 */}
-              <div className="bg-surface-low border border-outline-ghost rounded p-6 shadow-md relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-2 h-full bg-purple-800"></div>
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-2xl font-display text-on-surface">Sects & Violets</h3>
-                    <p className="text-purple-400 font-display text-sm">Edición Intermedia</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-xl font-display text-on-surface">Mañana</p>
-                    <p className="text-on-surface-muted text-sm">22:30h</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 border-t border-outline-ghost/50 pt-4 mt-4">
-                  <div className="w-8 h-8 rounded-full bg-surface-highest border border-outline-ghost flex items-center justify-center overflow-hidden">
-                    <div className="w-full h-full bg-surface flex items-center justify-center text-xs">?</div>
-                  </div>
-                  <div>
-                    <p className="text-xs text-on-surface-muted">Storyteller</p>
-                    <p className="text-sm font-display text-on-surface">Por definir</p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
+          <div className="flex gap-4">
+            <Button to="/" variant="primary" className="px-8 py-3">
+              Volver al Atrio
+            </Button>
+            <Button to="/grimorio" variant="outline" className="px-8 py-3">
+              Ver el Grimorio
+            </Button>
           </div>
         </div>
       </div>
-    );
-  };
-  
-  export default Calendario;
+    </div>
+  );
+};
+
+export default Calendario;

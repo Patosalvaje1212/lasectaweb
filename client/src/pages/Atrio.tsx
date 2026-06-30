@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import Cita from '../components/Cita';
+import Button from '../components/Button';
 
 const Atrio = () => {
   return (
@@ -17,21 +18,21 @@ const Atrio = () => {
       <div className="max-w-5xl w-full mx-auto px-8 py-10 relative z-20 -mt-20">
         <div className="bg-surface border border-outline-ghost rounded shadow-2xl p-10 pt-8 relative">
           <div className="bg-surface-low p-8 border border-outline-ghost shadow-inner mb-8 relative z-20">
-            <h3 className="text-2xl font-display text-theme-main mb-4">La Secta</h3>
-            <p className="text-on-surface text-lg relative font-body leading-relaxed italic mb-4">
-              «Partidas de Blood on the Clocktower todas las noches.»
-            </p>
-            <p className="text-on-surface-muted text-base relative font-body leading-relaxed">
-              Somos un grupo cerrado de jugadores dedicados al arte del engaño y la deducción. Nuestras noches son diferentes: aquí la confianza es un recurso escaso, y la muerte es solo el principio. Bienvenido al ritual.
+            <Cita texto="Lo que está muerto no puede morir..." />
+            <p className="text-on-surface-muted text-lg relative font-body leading-relaxed">
+              ...sino que se alza en la plaza para dar el voto final. Bienvenidos a <span className="text-theme-main font-semibold">La Secta</span>, el rincón donde los hilos de Blood on the Clocktower se mueven en la sombra. Aquí los vivos desconfían, los caídos siguen jugando y el Demonio camina entre nosotros.
             </p>
           </div>
-          <div className="flex gap-6">
-            <Link to="/unete" className="bg-surface-highest text-on-surface px-8 py-3 font-display text-[15px] shadow-md border border-outline-ghost hover:bg-theme-main hover:border-theme-main transition-all relative z-20 rounded-sm">
+          <div className="flex justify-center w-full mt-4">
+            <Button 
+              variant="primary"
+              href="https://t.me/+bHZ62RndFQI1MmJk" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="px-10 py-4 text-lg relative z-20"
+            >
               Únete a la Secta
-            </Link>
-            <Link to="/plaza" className="bg-transparent text-on-surface-muted border border-outline-ghost px-8 py-3 font-display text-[15px] hover:bg-surface-low hover:text-on-surface transition-all inline-block relative z-20 rounded-sm">
-              Ver la Plaza
-            </Link>
+            </Button>
           </div>
         </div>
       </div>
