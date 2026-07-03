@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  HeartHandshake, 
-  Scale, 
-  Scroll, 
-  Calendar, 
-  Sparkles, 
-  Video, 
-  Send, 
-  Coins, 
-  Key, 
-  MessagesSquare, 
-  UserX, 
-  Gift, 
-  Users, 
+import {
+  HeartHandshake,
+  Scale,
+  Scroll,
+  Calendar,
+  Sparkles,
+  Video,
+  Send,
+  Coins,
+  Key,
+  MessagesSquare,
+  UserX,
+  Gift,
+  Users,
   ShieldCheck,
   ChevronRight
 } from 'lucide-react';
@@ -96,13 +96,13 @@ const Escrituras = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 pointer-events-none"></div>
         <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
         <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
-        
-        <img 
-          src="/rules_banner_wide.jpg" 
-          alt="Grimoire Rules" 
-          className="w-full h-full object-cover object-center grayscale-[0.5] opacity-80" 
+
+        <img
+          src="/rules_banner_wide.jpg"
+          alt="Grimoire Rules"
+          className="w-full h-full object-cover object-center grayscale-[0.5] opacity-80"
         />
-        
+
         <div className="absolute bottom-12 left-0 right-0 w-full max-w-7xl mx-auto px-6 md:px-10 z-20">
           <h2 className="text-4xl md:text-5xl font-display text-on-surface drop-shadow-lg tracking-normal">
             Las Sagradas Escrituras
@@ -112,11 +112,11 @@ const Escrituras = () => {
           </p>
         </div>
       </div>
-      
+
       {/* Main Layout Container */}
       <div className="max-w-7xl w-full mx-auto px-6 md:px-10 py-10 relative z-20 -mt-20 flex-1">
         <div className="bg-surface border border-outline-ghost p-6 md:p-10 rounded shadow-2xl relative flex flex-col md:flex-row gap-8 lg:gap-12">
-          
+
           {/* Mobile Sticky Navigation */}
           <div className="md:hidden sticky top-[80px] z-30 bg-surface border-b border-outline-ghost -mx-6 px-6 py-3 overflow-x-auto no-scrollbar flex gap-2 mb-4">
             {SECTIONS.map((sec) => {
@@ -126,11 +126,10 @@ const Escrituras = () => {
                 <button
                   key={sec.id}
                   onClick={(e) => scrollToSection(e, sec.id)}
-                  className={`flex items-center gap-2 px-3.5 py-2 rounded-sm font-display text-xs whitespace-nowrap transition-all border ${
-                    isActive 
-                      ? 'bg-theme-container/50 text-theme-main border-theme-main/50 font-semibold shadow-md' 
-                      : 'bg-surface-low border-outline-ghost text-on-surface-muted hover:text-on-surface'
-                  }`}
+                  className={`flex items-center gap-2 px-3.5 py-2 rounded-sm font-display text-xs whitespace-nowrap transition-all border ${isActive
+                    ? 'bg-theme-container/50 text-theme-main border-theme-main/50 font-semibold shadow-md'
+                    : 'bg-surface-low border-outline-ghost text-on-surface-muted hover:text-on-surface'
+                    }`}
                 >
                   <Icon className="w-3.5 h-3.5 shrink-0" />
                   <span>{sec.short}</span>
@@ -152,11 +151,10 @@ const Escrituras = () => {
                   <button
                     key={sec.id}
                     onClick={(e) => scrollToSection(e, sec.id)}
-                    className={`w-full flex items-center gap-3 px-3 py-2.5 text-left rounded-sm font-display text-xs lg:text-sm transition-all duration-200 group relative border-l-2 ${
-                      isActive 
-                        ? 'bg-theme-container/20 text-theme-main border-theme-main pl-4 font-semibold shadow-[inset_1px_0_0_rgba(177,156,217,0.1)]' 
-                        : 'text-on-surface-muted hover:text-on-surface hover:bg-surface-high/40 border-transparent'
-                    }`}
+                    className={`w-full flex items-center gap-3 px-3 py-2.5 text-left rounded-sm font-display text-xs lg:text-sm transition-all duration-200 group relative border-l-2 ${isActive
+                      ? 'bg-theme-container/20 text-theme-main border-theme-main pl-4 font-semibold shadow-[inset_1px_0_0_rgba(177,156,217,0.1)]'
+                      : 'text-on-surface-muted hover:text-on-surface hover:bg-surface-high/40 border-transparent'
+                      }`}
                   >
                     <Icon className={`w-4 h-4 shrink-0 transition-transform ${isActive ? 'scale-110 text-theme-main' : 'opacity-70 group-hover:opacity-100 group-hover:scale-105'}`} />
                     <span className="truncate">{sec.label}</span>
@@ -169,11 +167,11 @@ const Escrituras = () => {
 
           {/* Laws Content Columns */}
           <div className="flex-1 min-w-0 space-y-10">
-            
+
             {/* Section 0 */}
-            <section 
-              id="sec-0" 
-              data-section 
+            <section
+              id="sec-0"
+              data-section
               className="scroll-mt-28 bg-surface-low border border-outline-ghost rounded p-6 md:p-8 hover:border-theme-main/30 transition-all duration-300 shadow-md"
             >
               <div className="flex items-center gap-3 mb-4 border-b border-outline-ghost pb-3">
@@ -191,9 +189,9 @@ const Escrituras = () => {
             </section>
 
             {/* Section 1 */}
-            <section 
-              id="sec-1" 
-              data-section 
+            <section
+              id="sec-1"
+              data-section
               className="scroll-mt-28 bg-surface-low border border-outline-ghost rounded p-6 md:p-8 hover:border-theme-main/30 transition-all duration-300 shadow-md"
             >
               <div className="flex items-center gap-3 mb-4 border-b border-outline-ghost pb-3">
@@ -210,39 +208,39 @@ const Escrituras = () => {
                 <p>
                   <strong className="text-theme-main mr-2 font-display">1.3</strong> Si tu propuesta requiere del trabajo de otra gente, que sea el tuyo o que esa gente esté de acuerdo. Nunca propongas trabajo para los demás sin decírselo, básicamente porque no lo van a hacer.
                 </p>
-                
-                <div className="pl-4 border-l-2 border-theme-main/40 my-3 py-2 bg-theme-container/5 rounded-r">
-                  <p className="flex items-start gap-2">
-                    <strong className="text-theme-main font-display">1.4</strong> 
-                    <span>Para que una propuesta se acepte debe cumplir, en 14 días:</span>
-                  </p>
-                  <ul className="list-disc list-inside pl-6 mt-1 space-y-1 text-on-surface/90">
-                    <li>Tener más votos positivos que negativos.</li>
-                  </ul>
-                </div>
-                
+
+
+                <p className="flex items-start gap-2">
+                  <strong className="text-theme-main font-display">1.4</strong>
+                  <span>Para que una propuesta se acepte debe cumplir, en 14 días:</span>
+                </p>
+                <ul className="list-disc list-inside pl-6 mt-1 space-y-1 text-on-surface/90">
+                  <li>Tener más votos positivos que negativos.</li>
+                </ul>
+
+
                 <p>
                   <strong className="text-theme-main mr-2 font-display">1.5</strong> Puedes dejar comentarios en las propuestas para proponer cambios o explicar por qué te parece bien o mal.
                 </p>
-                
-                <div className="pl-4 border-l-2 border-theme-main/40 my-3 py-2 bg-theme-container/5 rounded-r">
-                  <p className="flex items-start gap-2">
-                    <strong className="text-theme-main font-display">1.6</strong> 
-                    <span>Para que una propuesta se acepte antes de 14 días:</span>
-                  </p>
-                  <ul className="list-disc list-inside pl-6 mt-1 space-y-1 text-on-surface/90">
-                    <li>Tener al menos 15 votos positivos.</li>
-                    <li>No tener más de 1 voto negativo.</li>
-                    <li>Que hayan pasado al menos 3 días desde la propuesta.</li>
-                  </ul>
-                </div>
+
+
+                <p className="flex items-start gap-2">
+                  <strong className="text-theme-main font-display">1.6</strong>
+                  <span>Para que una propuesta se acepte antes de 14 días:</span>
+                </p>
+                <ul className="list-disc list-inside pl-6 mt-1 space-y-1 text-on-surface/90">
+                  <li>Tener al menos 15 votos positivos.</li>
+                  <li>No tener más de 1 voto negativo.</li>
+                  <li>Que hayan pasado al menos 3 días desde la propuesta.</li>
+                </ul>
+
               </div>
             </section>
 
             {/* Section 2 */}
-            <section 
-              id="sec-2" 
-              data-section 
+            <section
+              id="sec-2"
+              data-section
               className="scroll-mt-28 bg-surface-low border border-outline-ghost rounded p-6 md:p-8 hover:border-theme-main/30 transition-all duration-300 shadow-md"
             >
               <div className="flex items-center gap-3 mb-4 border-b border-outline-ghost pb-3">
@@ -269,9 +267,9 @@ const Escrituras = () => {
             </section>
 
             {/* Section 3 */}
-            <section 
-              id="sec-3" 
-              data-section 
+            <section
+              id="sec-3"
+              data-section
               className="scroll-mt-28 bg-surface-low border border-outline-ghost rounded p-6 md:p-8 hover:border-theme-main/30 transition-all duration-300 shadow-md"
             >
               <div className="flex items-center gap-3 mb-4 border-b border-outline-ghost pb-3">
@@ -279,10 +277,7 @@ const Escrituras = () => {
                 <h3 className="text-xl md:text-2xl font-display text-theme-main leading-none">3. Proponer partidas</h3>
               </div>
               <div className="space-y-4 font-body text-lg text-on-surface leading-relaxed">
-                <div className="bg-red-950/20 border border-red-500/30 p-4 rounded mb-4 text-red-200 text-base shadow-[0_0_15px_rgba(239,68,68,0.05)]">
-                  <span className="font-bold font-display uppercase tracking-wider block text-red-400 mb-1">Aviso de Reserva:</span>
-                  ACTUALMENTE EL SISTEMA DE RESERVAS NO ESTÁ OPERATIVO
-                </div>
+
                 <p>
                   <strong className="text-theme-main mr-2 font-display">3.1</strong> Para las partidas de la noche, al ser muchos narradores, existe un sistema de reservas.
                 </p>
@@ -308,9 +303,9 @@ const Escrituras = () => {
             </section>
 
             {/* Section 4 */}
-            <section 
-              id="sec-4" 
-              data-section 
+            <section
+              id="sec-4"
+              data-section
               className="scroll-mt-28 bg-surface-low border border-outline-ghost rounded p-6 md:p-8 hover:border-theme-main/30 transition-all duration-300 shadow-md"
             >
               <div className="flex items-center gap-3 mb-4 border-b border-outline-ghost pb-3">
@@ -331,9 +326,9 @@ const Escrituras = () => {
             </section>
 
             {/* Section 5 */}
-            <section 
-              id="sec-5" 
-              data-section 
+            <section
+              id="sec-5"
+              data-section
               className="scroll-mt-28 bg-surface-low border border-outline-ghost rounded p-6 md:p-8 hover:border-theme-main/30 transition-all duration-300 shadow-md"
             >
               <div className="flex items-center gap-3 mb-4 border-b border-outline-ghost pb-3">
@@ -357,9 +352,9 @@ const Escrituras = () => {
             </section>
 
             {/* Section 6 */}
-            <section 
-              id="sec-6" 
-              data-section 
+            <section
+              id="sec-6"
+              data-section
               className="scroll-mt-28 bg-surface-low border border-outline-ghost rounded p-6 md:p-8 hover:border-theme-main/30 transition-all duration-300 shadow-md"
             >
               <div className="flex items-center gap-3 mb-4 border-b border-outline-ghost pb-3">
@@ -383,9 +378,9 @@ const Escrituras = () => {
             </section>
 
             {/* Section 7 */}
-            <section 
-              id="sec-7" 
-              data-section 
+            <section
+              id="sec-7"
+              data-section
               className="scroll-mt-28 bg-surface-low border border-outline-ghost rounded p-6 md:p-8 hover:border-theme-main/30 transition-all duration-300 shadow-md"
             >
               <div className="flex items-center gap-3 mb-4 border-b border-outline-ghost pb-3">
@@ -423,9 +418,9 @@ const Escrituras = () => {
             </section>
 
             {/* Section 8 */}
-            <section 
-              id="sec-8" 
-              data-section 
+            <section
+              id="sec-8"
+              data-section
               className="scroll-mt-28 bg-surface-low border border-outline-ghost rounded p-6 md:p-8 hover:border-theme-main/30 transition-all duration-300 shadow-md"
             >
               <div className="flex items-center gap-3 mb-4 border-b border-outline-ghost pb-3">
@@ -433,16 +428,16 @@ const Escrituras = () => {
                 <h3 className="text-xl md:text-2xl font-display text-theme-main leading-none">8. Segunda cuenta de botc.app</h3>
               </div>
               <div className="space-y-4 font-body text-lg text-on-surface leading-relaxed">
-                <div className="pl-4 border-l-2 border-theme-main/40 my-3 py-2 bg-theme-container/5 rounded-r">
-                  <p className="flex items-start gap-2">
-                    <strong className="text-theme-main font-display">8.1</strong> 
-                    <span>El alta de la cuenta dependerá de que se cumplan los 2 puntos siguientes, en cuanto uno de los 2 no se cumpla se procederá al cambio en el estado de la cuenta lo antes posible:</span>
-                  </p>
-                  <ul className="list-disc list-inside pl-6 mt-2 space-y-1.5 text-on-surface/90">
-                    <li>Durante las 4 semanas anteriores se ha debido necesitar un uso de una segunda cuenta para una segunda partida paralela al menos 4 días a la semana de media. Para la comprobación se podrá realizar <Link to="/calendario" className="text-theme-main hover:underline hover:text-theme-main/80 font-semibold transition-colors">aquí</Link>.</li>
-                    <li>La reserva económica de los pagos de la secta debe tener garantizado el pago de los próximos 6 meses incluyendo en el cálculo de costes el mantenimiento de las 2 cuentas y los variados costes de los servicios de la web.</li>
-                  </ul>
-                </div>
+
+                <p className="flex items-start gap-2">
+                  <strong className="text-theme-main font-display">8.1</strong>
+                  <span>El alta de la cuenta dependerá de que se cumplan los 2 puntos siguientes, en cuanto uno de los 2 no se cumpla se procederá al cambio en el estado de la cuenta lo antes posible:</span>
+                </p>
+                <ul className="list-disc list-inside pl-6 mt-2 space-y-1.5 text-on-surface/90">
+                  <li>Durante las 4 semanas anteriores se ha debido necesitar un uso de una segunda cuenta para una segunda partida paralela al menos 4 días a la semana de media. Para la comprobación se podrá realizar <Link to="/calendario" className="text-theme-main hover:underline hover:text-theme-main/80 font-semibold transition-colors">aquí</Link>.</li>
+                  <li>La reserva económica de los pagos de la secta debe tener garantizado el pago de los próximos 6 meses incluyendo en el cálculo de costes el mantenimiento de las 2 cuentas y los variados costes de los servicios de la web.</li>
+                </ul>
+
                 <p>
                   <strong className="text-theme-main mr-2 font-display">8.2</strong> El usuario y la contraseña de la segunda cuenta estará disponible para los narradores en el mismo espacio en el que se compartan los de la primera.
                 </p>
@@ -456,9 +451,9 @@ const Escrituras = () => {
             </section>
 
             {/* Section 9 */}
-            <section 
-              id="sec-9" 
-              data-section 
+            <section
+              id="sec-9"
+              data-section
               className="scroll-mt-28 bg-surface-low border border-outline-ghost rounded p-6 md:p-8 hover:border-theme-main/30 transition-all duration-300 shadow-md"
             >
               <div className="flex items-center gap-3 mb-4 border-b border-outline-ghost pb-3">
@@ -473,9 +468,9 @@ const Escrituras = () => {
             </section>
 
             {/* Section 10 */}
-            <section 
-              id="sec-10" 
-              data-section 
+            <section
+              id="sec-10"
+              data-section
               className="scroll-mt-28 bg-surface-low border border-outline-ghost rounded p-6 md:p-8 hover:border-theme-main/30 transition-all duration-300 shadow-md"
             >
               <div className="flex items-center gap-3 mb-4 border-b border-outline-ghost pb-3">
@@ -492,9 +487,9 @@ const Escrituras = () => {
             </section>
 
             {/* Section 11 */}
-            <section 
-              id="sec-11" 
-              data-section 
+            <section
+              id="sec-11"
+              data-section
               className="scroll-mt-28 bg-surface-low border border-outline-ghost rounded p-6 md:p-8 hover:border-theme-main/30 transition-all duration-300 shadow-md"
             >
               <div className="flex items-center gap-3 mb-4 border-b border-outline-ghost pb-3">
@@ -515,9 +510,9 @@ const Escrituras = () => {
             </section>
 
             {/* Section 12 */}
-            <section 
-              id="sec-12" 
-              data-section 
+            <section
+              id="sec-12"
+              data-section
               className="scroll-mt-28 bg-surface-low border border-outline-ghost rounded p-6 md:p-8 hover:border-theme-main/30 transition-all duration-300 shadow-md"
             >
               <div className="flex items-center gap-3 mb-4 border-b border-outline-ghost pb-3">
@@ -560,9 +555,9 @@ const Escrituras = () => {
             </section>
 
             {/* Section 13 */}
-            <section 
-              id="sec-13" 
-              data-section 
+            <section
+              id="sec-13"
+              data-section
               className="scroll-mt-28 bg-surface-low border border-outline-ghost rounded p-6 md:p-8 hover:border-theme-main/30 transition-all duration-300 shadow-md"
             >
               <div className="flex items-center gap-3 mb-4 border-b border-outline-ghost pb-3">

@@ -3,6 +3,7 @@ import { Outlet, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import AuthModal from './AuthModal';
 import Button from './Button';
+import HeaderLink from './HeaderLink';
 
 const Layout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,11 +27,11 @@ const Layout = () => {
             </Link>
             
             <nav className="hidden md:flex gap-6 ml-8 mt-2 items-center flex-wrap">
-              <Link to="/grimorio" className="text-lg lg:text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors">Grimorio</Link>
-              <Link to="/escrituras" className="text-lg lg:text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors">Escrituras</Link>
-              <Link to="/plaza" className="text-lg lg:text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors">Plaza</Link>
-              <Link to="/calendario" className="text-lg lg:text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors">Calendario</Link>
-              <Link to="/unete" className="text-lg lg:text-xl font-display text-theme-main font-medium hover:text-on-surface transition-colors">Únete</Link>
+              <HeaderLink to="/grimorio">Grimorio</HeaderLink>
+              <HeaderLink to="/escrituras">Escrituras</HeaderLink>
+              <HeaderLink to="/plaza">Plaza</HeaderLink>
+              <HeaderLink to="/calendario">Calendario</HeaderLink>
+              <HeaderLink to="/unete" isSpecial>Únete</HeaderLink>
             </nav>
           </div>
           

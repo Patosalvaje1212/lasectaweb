@@ -24,19 +24,19 @@ const Grimorio = () => {
               <div>
                 <h3 className="text-xl font-display text-theme-main mb-3">¿Qué es Blood in the Clocktower?</h3>
                 <p className="text-on-surface text-base font-body leading-relaxed">
-                  Es un juego de deducción social para entre 5 y 20 jugadores en el que el bien y el mal libran una batalla de ingenio. Un Cuentacuentos guía la historia, mientras que cada participante recibe un rol único con habilidades especiales. Lo que lo hace especial es que los jugadores asesinados siguen participando activamente, teniendo un voto fantasmal para influir en el destino del pueblo.
+                  Es un juego de deducción social para entre 5 y 20 jugadores en el que el bien y el mal libran una batalla de ingenio. Un Narrador guía la historia, mientras que cada participante recibe un rol único con habilidades especiales. Lo que lo hace especial es que los jugadores asesinados siguen participando activamente, teniendo un voto fantasmal para influir en el destino del pueblo.
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-display text-theme-main mb-3">¿Cómo jugamos?</h3>
                 <p className="text-on-surface text-base font-body leading-relaxed">
-                  En La Secta nos reunimos habitualmente de manera online. Utilizamos la plataforma <strong>Villacuervos</strong> para visualizar el grimorio y gestionar las interacciones del pueblo, y nos comunicamos a través de canales de voz dedicados en <strong>Telegram</strong>. La narración inmersiva, las alianzas secretas y las puñaladas por la espalda están garantizadas en cada sesión.
+                  En La Secta nos reunimos habitualmente de manera online para desatar el caos. Utilizamos la plataforma <a href="https://www.botc.app">botc.app</a> para visualizar el grimorio en tiempo real y gestionar las interacciones del pueblo, mientras que toda la diplomacia, las acusaciones y los susurros ocurren a través de nuestros canales de voz dedicados en Telegram. La narración inmersiva, las alianzas secretas y las puñaladas por la espalda están garantizadas en cada sesión.
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-display text-theme-main mb-3">¿Quiénes somos?</h3>
                 <p className="text-on-surface text-base font-body leading-relaxed">
-                  Somos una comunidad de apasionados por los juegos de deducción, el rol en vivo y el misterio. Nacimos de la pasión por Blood on the Clocktower y el deseo de crear un espacio acogedor y emocionante para jugadores de todos los niveles, desde principiantes que apenas aprenden a mentir hasta veteranos expertos en sembrar la duda.
+                  Somos una comunidad de aficionados a Blood on the Clocktower, abierta e inclusiva, cuyo objetivo es compartir nuestra pasión y generar espacios y oportunidades para jugar, conversar, conocernos e interactuar entre nosotros, creando una comunidad activa donde cada partida sea también una ocasión para conectar con otras personas.
                 </p>
               </div>
             </div>

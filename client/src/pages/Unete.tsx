@@ -1,4 +1,5 @@
 import Button from '../components/Button';
+import Cita from '../components/Cita';
 
 const Unete = () => {
     return (
@@ -18,12 +19,7 @@ const Unete = () => {
         <div className="max-w-4xl w-full mx-auto px-8 py-10 relative z-20 -mt-20">
           <div className="bg-surface border border-outline-ghost p-8 md:p-10 rounded shadow-2xl relative">
             
-            <div className="text-center max-w-2xl mx-auto mb-10">
-              <h3 className="text-3xl font-display text-theme-main mb-4 border-b border-outline-ghost pb-2">Directorio de la Comunidad</h3>
-              <p className="text-on-surface-muted font-body text-lg leading-relaxed">
-                El Demonio se oculta entre las sombras, pero la comunidad de La Secta siempre está activa. Elige tu portal de entrada para enterarte de partidas, ver crónicas y debatir sobre Blood on the Clocktower.
-              </p>
-            </div>
+            <Cita texto="Aquí todos *mienten*. Algunos también dicen la *verdad*" />
 
             <div className="space-y-6">
               {/* Telegram - Destacado como la comunidad principal */}
