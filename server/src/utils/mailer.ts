@@ -1,7 +1,8 @@
 import { Resend } from 'resend';
 
 export async function sendConfirmationEmail(email: string, username: string, token: string): Promise<void> {
-  const clientUrl = process.env.VITE_CLIENT_URL || 'http://localhost:5173';
+  const clientUrlRaw = process.env.VITE_CLIENT_URL || 'http://localhost:5173';
+  const clientUrl = clientUrlRaw.endsWith('/') ? clientUrlRaw.slice(0, -1) : clientUrlRaw;
   const confirmationUrl = `${clientUrl}/confirmar?token=${token}`;
 
   const resendApiKey = process.env.RESEND_API_KEY;
