@@ -1,6 +1,29 @@
 import dotenv from 'dotenv';
 import path from 'path';
-dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+import fs from 'fs';
+
+// Intentar cargar el archivo .env desde múltiples rutas para garantizar compatibilidad (dev, prod, PM2, dist, etc.)
+const envPaths = [
+  path.resolve(process.cwd(), '.env'),
+  path.resolve(process.cwd(), '../.env'),
+  path.resolve(__dirname, '../.env'),
+  path.resolve(__dirname, '../../.env'),
+];
+
+let loaded = false;
+for (const envPath of envPaths) {
+  if (fs.existsSync(envPath)) {
+    dotenv.config({ path: envPath });
+    console.log(`[ENV] Cargado archivo de entorno desde: ${envPath}`);
+    loaded = true;
+    break;
+  }
+}
+
+if (!loaded) {
+  dotenv.config();
+  console.log('[ENV] Cargando entorno con configuración por defecto.');
+}
 
 import express from 'express';
 import cors from 'cors';
