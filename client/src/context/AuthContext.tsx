@@ -9,6 +9,7 @@ interface User {
   email: string;
   telegramUsername: string;
   profilePicture: string;
+  roles: string[];
 }
 
 interface AuthContextType {

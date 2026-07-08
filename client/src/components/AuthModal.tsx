@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { X, Check } from 'lucide-react';
+import { X, Check, Plus } from 'lucide-react';
 import Button from './Button';
+import { compressImage } from '../utils/image';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -9,7 +10,11 @@ interface AuthModalProps {
 }
 
 const AVATAR_OPTIONS = [
-  { id: 'alice', url: '/avatar.png', label: 'Alice' }
+  { id: 'default', url: '/avatar.png', label: 'Adepto' },
+  { id: 'wizard', url: '/avatars/wizard.png', label: 'Hechicero' },
+  { id: 'sorceress', url: '/avatars/sorceress.png', label: 'Hechicera' },
+  { id: 'rogue', url: '/avatars/rogue.png', label: 'Asesino' },
+  { id: 'noble', url: '/avatars/noble.png', label: 'Noble' }
 ];
 
 const API_URL = `${import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api'}/auth`;
@@ -18,6 +23,8 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
   const { login } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [customAvatar, setCustomAvatar] = useState<string | null>(null);
   
   // Form state
   const [formData, setFormData] = useState({
@@ -30,6 +37,14 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     profilePicture: AVATAR_OPTIONS[0].url
   });
 
+  React.useEffect(() => {
+    if (!isOpen) {
+      setSuccessMessage('');
+      setError('');
+      setCustomAvatar(null);
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,6 +54,25 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
   const selectAvatar = (url: string) => {
     setFormData({ ...formData, profilePicture: url });
   };
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setError('');
+    try {
+      const base64 = await compressImage(file);
+      setCustomAvatar(base64);
+      setFormData((prev) => ({ ...prev, profilePicture: base64 }));
+    } catch (err: any) {
+      setError('Error al procesar la imagen. Inténtalo de nuevo.');
+    }
+  };
+
+  const visibleAvatars = [
+    ...AVATAR_OPTIONS,
+    ...(customAvatar ? [{ id: 'custom', url: customAvatar, label: 'Personalizado' }] : [])
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,8 +96,12 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
         throw new Error(data.error || 'Algo salió mal en el ritual.');
       }
 
-      login(data.user, data.token);
-      onClose();
+      if (isLogin) {
+        login(data.user, data.token);
+        onClose();
+      } else {
+        setSuccessMessage(data.message || 'El ritual de registro ha comenzado. Por favor, revisa tu correo electrónico para confirmar tu cuenta.');
+      }
     } catch (err: any) {
       if (err.message === 'Failed to fetch') {
         setError('Los dioses no responden. El grimorio no pudo conectar con el servidor.');
@@ -72,6 +110,32 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
       }
     }
   };
+
+  if (successMessage) {
+    return (
+      <div className="fixed inset-0 bg-background/80 backdrop-blur-md z-[100] flex items-center justify-center p-4">
+        <div className="bg-surface border border-outline-ghost rounded shadow-2xl w-full max-w-md overflow-hidden flex flex-col p-8 text-center gap-6">
+          <div className="w-16 h-16 bg-theme-main/10 rounded-full flex justify-center items-center mx-auto border border-theme-main/30 animate-pulse">
+            <Check className="text-theme-main" size={32} />
+          </div>
+          <h2 className="text-2xl font-display text-on-surface">Ritual Iniciado</h2>
+          <p className="text-on-surface-muted font-body text-sm leading-relaxed">
+            {successMessage}
+          </p>
+          <Button 
+            onClick={() => {
+              setSuccessMessage('');
+              setIsLogin(true);
+            }} 
+            variant="primary" 
+            className="w-full mt-2 py-3"
+          >
+            Volver a Identificarse
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 bg-background/80 backdrop-blur-md z-[100] flex items-center justify-center p-4">
@@ -144,8 +208,8 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
 
                 <div className="flex flex-col gap-2 mt-2">
                   <label className="text-sm font-display text-on-surface-muted">Selecciona tu Avatar</label>
-                  <div className="flex gap-3 overflow-x-auto pb-2">
-                    {AVATAR_OPTIONS.map((avatar) => (
+                  <div className="flex gap-3 overflow-x-auto pb-2 pt-1">
+                    {visibleAvatars.map((avatar) => (
                       <Button
                         key={avatar.id}
                         type="button"
@@ -161,6 +225,18 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                         )}
                       </Button>
                     ))}
+                    
+                    {/* Custom upload option */}
+                    <label className="relative w-16 h-16 rounded overflow-hidden flex-shrink-0 transition-all flex flex-col justify-center items-center border border-dashed border-outline-ghost hover:border-theme-main cursor-pointer opacity-70 hover:opacity-100 bg-surface-low">
+                      <Plus size={20} className="text-on-surface-muted" />
+                      <span className="text-[9px] font-display uppercase mt-1">Subir</span>
+                      <input 
+                        type="file" 
+                        accept="image/*" 
+                        className="hidden" 
+                        onChange={handleFileChange} 
+                      />
+                    </label>
                   </div>
                 </div>
               </>
