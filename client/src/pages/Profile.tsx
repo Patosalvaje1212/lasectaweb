@@ -239,7 +239,7 @@ const Profile = () => {
               </div>
 
               {/* Solicitudes de Rango */}
-              {!user.roles.includes('admin') && (
+              {!(user.roles || []).includes('admin') && (
                 <div className="bg-surface-low p-6 border border-outline-ghost shadow-inner rounded mb-8">
                   <h3 className="text-xl font-display text-on-surface mb-6 border-b border-outline-ghost/50 pb-2">Solicitudes de Rango</h3>
                   <div className="flex flex-col gap-4">
@@ -248,13 +248,13 @@ const Profile = () => {
                       <div>
                         <h4 className="font-display text-on-surface text-base">Conocimiento de Editor</h4>
                         <p className="text-sm font-body text-on-surface-muted mt-1">
-                          {user.roles.includes('editor')
+                          {(user.roles || []).includes('editor')
                             ? 'Ya posees el rango de Editor.'
                             : 'Permite redactar, corregir y archivar los Códices de La Secta.'}
                         </p>
                       </div>
                       <div className="shrink-0">
-                        {user.roles.includes('editor') ? (
+                        {(user.roles || []).includes('editor') ? (
                           <span className="text-sm font-display text-green-400 font-bold uppercase">Asignado</span>
                         ) : requests.some(r => r.requestedRole === 'editor' && r.status === 'pending') ? (
                           <span className="text-sm font-display text-theme-main italic">Pendiente de Aprobación</span>
@@ -271,13 +271,13 @@ const Profile = () => {
                       <div>
                         <h4 className="font-display text-on-surface text-base">Rango de Narrador</h4>
                         <p className="text-sm font-body text-on-surface-muted mt-1">
-                          {user.roles.includes('narrador')
+                          {(user.roles || []).includes('narrador')
                             ? 'Ya posees el rango de Narrador.'
                             : 'Permite convocar rituales, guiar el calendario e influir en el destino de los adeptos.'}
                         </p>
                       </div>
                       <div className="shrink-0">
-                        {user.roles.includes('narrador') ? (
+                        {(user.roles || []).includes('narrador') ? (
                           <span className="text-sm font-display text-green-400 font-bold uppercase">Asignado</span>
                         ) : requests.some(r => r.requestedRole === 'narrador' && r.status === 'pending') ? (
                           <span className="text-sm font-display text-theme-main italic">Pendiente de Aprobación</span>

@@ -36,9 +36,9 @@ const Gestion = () => {
   const [success, setSuccess] = useState('');
 
   // Comprobar permisos
-  const isAdmin = user?.roles.includes('admin') || false;
-  const isNarrador = user?.roles.includes('narrador') || false;
-  const isEditor = user?.roles.includes('editor') || false;
+  const isAdmin = user?.roles?.includes('admin') || false;
+  const isNarrador = user?.roles?.includes('narrador') || false;
+  const isEditor = user?.roles?.includes('editor') || false;
   const hasAccess = isAdmin || isNarrador || isEditor;
 
   const fetchUsersAndRequests = async () => {
