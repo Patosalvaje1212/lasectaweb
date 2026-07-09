@@ -1,20 +1,15 @@
 import Button from '../components/Button';
 import Cita from '../components/Cita';
+import PageHeader from '../components/PageHeader';
 
 const Unete = () => {
     return (
       <div className="flex flex-col w-full">
-        <div className="relative h-[45vh] w-full border-b border-outline-ghost bg-background flex justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
-          
-          <img src="/join_banner_wide.jpg" alt="Blood Pact" className="w-full h-full object-cover object-center grayscale-[0.5] opacity-80" />
-          
-          <div className="absolute bottom-12 left-0 right-0 w-full max-w-5xl mx-auto px-8 z-20">
-            <h2 className="text-5xl font-display text-on-surface drop-shadow-lg tracking-normal">Únete al Culto</h2>
-          </div>
-        </div>
+        <PageHeader 
+          title="Únete al Culto" 
+          imageSrc="/join_banner_wide.jpg" 
+          imageAlt="Blood Pact" 
+        />
         
         <div className="max-w-4xl w-full mx-auto px-8 py-10 relative z-20 -mt-20">
           <div className="bg-surface border border-outline-ghost p-8 md:p-10 rounded shadow-2xl relative">

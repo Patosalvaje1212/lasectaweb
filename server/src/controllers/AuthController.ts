@@ -51,4 +51,97 @@ export class AuthController {
       res.status(400).json({ error: error.message });
     }
   };
+
+  confirm = async (req: Request, res: Response) => {
+    try {
+      const token = req.query.token as string;
+      const result = await this.userService.confirmUser(token);
+      res.status(200).json(result);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
+  };
+
+  createRoleRequest = async (req: AuthRequest, res: Response) => {
+    try {
+      if (!req.user) {
+        res.status(401).json({ error: 'No autorizado' });
+        return;
+      }
+      const { requestedRole } = req.body;
+      const result = await this.userService.createRoleRequest(req.user.id, requestedRole);
+      res.status(201).json(result);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
+  };
+
+  listPendingRoleRequests = async (req: AuthRequest, res: Response) => {
+    try {
+      if (!req.user) {
+        res.status(401).json({ error: 'No autorizado' });
+        return;
+      }
+      const result = await this.userService.listPendingRoleRequests(req.user.id);
+      res.status(200).json(result);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
+  };
+
+  listMyRoleRequests = async (req: AuthRequest, res: Response) => {
+    try {
+      if (!req.user) {
+        res.status(401).json({ error: 'No autorizado' });
+        return;
+      }
+      const result = await this.userService.listAllRoleRequestsForUser(req.user.id);
+      res.status(200).json(result);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
+  };
+
+  resolveRoleRequest = async (req: AuthRequest, res: Response) => {
+    try {
+      if (!req.user) {
+        res.status(401).json({ error: 'No autorizado' });
+        return;
+      }
+      const { requestId } = req.params;
+      const { approve } = req.body;
+      const result = await this.userService.resolveRoleRequest(requestId as string, approve, req.user.id);
+      res.status(200).json(result);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
+  };
+
+  listUsers = async (req: AuthRequest, res: Response) => {
+    try {
+      if (!req.user) {
+        res.status(401).json({ error: 'No autorizado' });
+        return;
+      }
+      const result = await this.userService.listUsers(req.user.id);
+      res.status(200).json(result);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
+  };
+
+  updateUserRoles = async (req: AuthRequest, res: Response) => {
+    try {
+      if (!req.user) {
+        res.status(401).json({ error: 'No autorizado' });
+        return;
+      }
+      const { userId } = req.params;
+      const { roles } = req.body;
+      const result = await this.userService.updateUserRoles(userId as string, roles, req.user.id);
+      res.status(200).json(result);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
+  };
 }

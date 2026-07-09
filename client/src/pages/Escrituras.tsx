@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PageHeader from '../components/PageHeader';
 import {
   HeartHandshake,
   Scale,
@@ -91,27 +92,15 @@ const Escrituras = () => {
         }
       `}</style>
 
-      {/* Header Banner */}
-      <div className="relative h-[45vh] w-full border-b border-outline-ghost bg-black flex justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
-
-        <img
-          src="/rules_banner_wide.jpg"
-          alt="Grimoire Rules"
-          className="w-full h-full object-cover object-center grayscale-[0.5] opacity-80"
-        />
-
-        <div className="absolute bottom-12 left-0 right-0 w-full max-w-7xl mx-auto px-6 md:px-10 z-20">
-          <h2 className="text-4xl md:text-5xl font-display text-on-surface drop-shadow-lg tracking-normal">
-            Las Sagradas Escrituras
-          </h2>
-          <p className="text-on-surface-muted font-body text-lg md:text-xl italic mt-2 max-w-2xl drop-shadow">
-            El compendio de leyes y normas de convivencia que rigen la comunidad de La Secta.
-          </p>
-        </div>
-      </div>
+      <PageHeader 
+        title="El Códice" 
+        subtitle="El compendio de leyes y normas de convivencia que rigen la comunidad de La Secta." 
+        imageSrc="/rules_banner_wide.jpg" 
+        imageAlt="Grimoire Rules" 
+        bgClass="bg-black" 
+        gradientClass="from-black" 
+        maxWidthClass="max-w-7xl" 
+      />
 
       {/* Main Layout Container */}
       <div className="max-w-7xl w-full mx-auto px-6 md:px-10 py-10 relative z-20 -mt-20 flex-1">

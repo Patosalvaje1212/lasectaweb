@@ -7,5 +7,9 @@ export interface User {
   telegramUsername: string;
   passwordHash: string;
   profilePicture: string;
+  isConfirmed: boolean;
+  confirmationToken?: string;
+  confirmationTokenExpires?: Date;
+  roles: ('editor' | 'narrador' | 'admin')[];
   createdAt: Date;
 }

@@ -29,7 +29,27 @@ export class DatabaseRepository {
         telegramUsername TEXT,
         passwordHash TEXT NOT NULL,
         profilePicture TEXT,
+        isConfirmed INTEGER DEFAULT 0,
+        confirmationToken TEXT,
+        confirmationTokenExpires DATETIME,
         createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
+      );
+
+      CREATE TABLE IF NOT EXISTS user_roles (
+        userId TEXT NOT NULL,
+        role TEXT NOT NULL,
+        PRIMARY KEY (userId, role),
+        FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE
+      );
+
+      CREATE TABLE IF NOT EXISTS role_requests (
+        id TEXT PRIMARY KEY,
+        userId TEXT NOT NULL,
+        requestedRole TEXT NOT NULL,
+        status TEXT DEFAULT 'pending',
+        createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE,
+        UNIQUE(userId, requestedRole, status)
       );
     `);
   }

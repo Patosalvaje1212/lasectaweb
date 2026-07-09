@@ -1,10 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
 @font-face {
+  font-family: 'Teutonic No1';
+  src: url('/fonts/teutonic1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Teutonic No2';
+  src: url('/fonts/teutonic2.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Teutonic No3';
   src: url('/fonts/teutonic3.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Teutonic No4';
+  src: url('/fonts/teutonic4.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -20,6 +41,10 @@
 @theme {
   --font-display: "Dum1", "Cinzel", serif;
   --font-body: "Crimson Text", serif;
+  --font-teutonic1: "Teutonic No1", "Cinzel", serif;
+  --font-teutonic2: "Teutonic No2", "Cinzel", serif;
+  --font-teutonic3: "Teutonic No3", "Cinzel", serif;
+  --font-teutonic4: "Teutonic No4", "Cinzel", serif;
 
   /* Core Tones */
   --color-background: var(--theme-background);
@@ -226,3 +251,30 @@
 .btn-rune-tr { top: 3px; right: 4px; }
 .btn-rune-bl { bottom: 3px; left: 4px; }
 .btn-rune-br { bottom: 3px; right: 4px; }
+
+/* Custom scrollbar styling matching La Secta aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a; /* Fondo ultra oscuro de la web */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2c2c2c; /* Color carbón para el scrollbar */
+  border-radius: 4px;
+  border: 1.5px solid #3a322c; /* Borde marrón quemado */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b19cd9; /* Color de ritual (violeta) al pasar el cursor */
+  border-color: #4a3b69;
+}
+
+/* Firefox scrollbar support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2c2c2c #0a0a0a;
+}
