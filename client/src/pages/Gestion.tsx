@@ -173,8 +173,8 @@ const Gestion = () => {
         imageAlt="Códice y Velas" 
       />
 
-      <div className="max-w-7xl w-full mx-auto px-6 py-10 relative z-20 -mt-20">
-        <div className="bg-surface border border-outline-ghost rounded shadow-2xl p-6 md:p-10">
+      <div className="max-w-7xl w-full mx-auto px-0 md:px-6 py-4 md:py-10 relative z-20 -mt-20">
+        <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost rounded-none md:rounded shadow-none md:shadow-2xl p-4 md:p-10">
           
           <h2 className="text-2xl font-display font-medium text-white mb-8 border-b border-outline-ghost pb-4">
             Gestión de Adeptos y Jerarquía

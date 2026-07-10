@@ -172,10 +172,10 @@ const Profile = () => {
         imageAlt="Bosque Oscuro y Luna" 
       />
       
-      <div className="max-w-5xl w-full mx-auto px-8 py-10 relative z-20 -mt-20">
-        <div className="bg-surface border border-outline-ghost rounded shadow-2xl p-10 relative">
+      <div className="max-w-5xl w-full mx-auto px-0 md:px-8 py-4 md:py-10 relative z-20 -mt-20">
+        <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost rounded-none md:rounded shadow-none md:shadow-2xl px-4 py-6 md:p-10 relative">
           
-          <div className="absolute top-10 right-10 flex gap-4">
+          <div className="flex md:absolute md:top-10 md:right-10 gap-3 mb-8 md:mb-0 justify-end w-full md:w-auto flex-wrap md:flex-nowrap z-20">
             {!isEditing && (
               <Button onClick={handleLogout} variant="danger" className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium shadow-sm transition-colors border-none">
                 Cerrar Sesión
@@ -192,7 +192,7 @@ const Profile = () => {
             )}
           </div>
 
-          <div className="flex gap-8 mb-8">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 md:gap-8 mb-8">
             <div className="w-32 h-32 rounded-full overflow-hidden border border-outline-ghost shadow-md flex-shrink-0 bg-background ring-2 ring-theme-main/50">
               <img 
                 src={isEditing ? (formData.profilePicture || "/avatar.png") : (user.profilePicture || "/avatar.png")} 
@@ -200,7 +200,7 @@ const Profile = () => {
                 className="w-full h-full object-cover grayscale-[0.2] transition-all duration-700" 
               />
             </div>
-            <div className="flex flex-col justify-center gap-2">
+            <div className="flex flex-col justify-center items-center sm:items-start gap-2">
               <p className="text-on-surface-muted font-display text-sm">Rol Primario</p>
               <p className="text-3xl font-display font-medium text-on-surface">{user.realName || user.username}</p>
               <span className="bg-surface-highest text-on-surface px-3 py-1 rounded-sm text-sm font-display w-max border border-outline-ghost">

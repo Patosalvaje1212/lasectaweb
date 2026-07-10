@@ -12,8 +12,8 @@ const Plaza = () => {
       />
       
       {/* Main Container */}
-      <div className="max-w-3xl w-full mx-auto px-8 py-10 relative z-20 -mt-20 flex-1">
-        <div className="bg-surface border border-outline-ghost p-10 rounded shadow-2xl relative text-center flex flex-col items-center">
+      <div className="max-w-3xl w-full mx-auto px-0 md:px-8 py-4 md:py-10 relative z-20 -mt-20 flex-1">
+        <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost rounded-none md:rounded shadow-none md:shadow-2xl px-4 py-6 md:p-10 relative text-center flex flex-col items-center">
           <div className="relative w-24 h-24 mb-6 flex items-center justify-center">
             {/* Pulsing glow background */}
             <div className="absolute inset-0 bg-theme-main/10 rounded-full animate-ping pointer-events-none"></div>

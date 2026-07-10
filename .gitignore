@@ -53,3 +53,6 @@ server/dist/
 dist/
 
 CLAUDE.md
+
+#Evitamos subir la bbdd
+database.sqlite

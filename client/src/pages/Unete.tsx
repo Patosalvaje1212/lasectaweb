@@ -11,8 +11,8 @@ const Unete = () => {
           imageAlt="Blood Pact" 
         />
         
-        <div className="max-w-4xl w-full mx-auto px-8 py-10 relative z-20 -mt-20">
-          <div className="bg-surface border border-outline-ghost p-8 md:p-10 rounded shadow-2xl relative">
+        <div className="max-w-4xl w-full mx-auto px-0 md:px-8 py-4 md:py-10 relative z-20 -mt-20">
+          <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost p-4 md:p-10 rounded-none md:rounded shadow-none md:shadow-2xl relative">
             
             <Cita texto="Aquí todos *mienten*. Algunos también dicen la *verdad*" />
 

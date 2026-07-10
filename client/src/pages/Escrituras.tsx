@@ -103,8 +103,8 @@ const Escrituras = () => {
       />
 
       {/* Main Layout Container */}
-      <div className="max-w-7xl w-full mx-auto px-6 md:px-10 py-10 relative z-20 -mt-20 flex-1">
-        <div className="bg-surface border border-outline-ghost p-6 md:p-10 rounded shadow-2xl relative flex flex-col md:flex-row gap-8 lg:gap-12">
+      <div className="max-w-7xl w-full mx-auto px-0 md:px-10 py-4 md:py-10 relative z-20 -mt-20 flex-1">
+        <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost p-4 md:p-10 rounded-none md:rounded shadow-none md:shadow-2xl relative flex flex-col md:flex-row gap-8 lg:gap-12">
 
           {/* Mobile Sticky Navigation */}
           <div className="md:hidden sticky top-[80px] z-30 bg-surface border-b border-outline-ghost -mx-6 px-6 py-3 overflow-x-auto no-scrollbar flex gap-2 mb-4">

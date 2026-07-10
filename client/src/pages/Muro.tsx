@@ -9,8 +9,8 @@ const Muro = () => {
           imageAlt="Muro de los Caídos" 
         />
         
-        <div className="max-w-5xl w-full mx-auto px-8 py-10 relative z-20 -mt-20">
-          <div className="bg-surface border border-outline-ghost p-10 rounded shadow-2xl relative">
+        <div className="max-w-5xl w-full mx-auto px-0 md:px-8 py-4 md:py-10 relative z-20 -mt-20">
+          <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost rounded-none md:rounded shadow-none md:shadow-2xl px-4 py-6 md:p-10 relative">
             
             <div className="mb-12">
                 <h3 className="text-3xl font-display text-theme-main border-b border-outline-ghost pb-2 mb-6">Crónicas</h3>

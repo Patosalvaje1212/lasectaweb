@@ -10,9 +10,9 @@ const Grimorio = () => {
         imageSrc="/calendar_banner_wide.jpg" 
         imageAlt="Calendario" 
       />
-      <div className="max-w-5xl w-full mx-auto px-8 py-10 relative z-20 -mt-20">
-        <div className="bg-surface border border-outline-ghost rounded shadow-2xl p-10 pt-8 relative">
-          <div className="bg-surface-low p-8 border border-outline-ghost shadow-inner mb-8 relative z-20 space-y-6">
+      <div className="max-w-5xl w-full mx-auto px-0 md:px-8 py-4 md:py-10 relative z-20 -mt-20">
+        <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost rounded-none md:rounded shadow-none md:shadow-2xl px-4 py-6 md:p-10 md:pt-8 relative">
+          <div className="bg-surface-low p-4 md:p-8 border border-outline-ghost shadow-inner mb-8 relative z-20 space-y-6">
             <Cita texto="El fuego de la plaza consume mi última coartada. Escucho susurros en las esquinas; no son los vivos quienes me preocupan, sino los ojos fríos de mis víctimas de cada noche. Aunque sus cuerpos yazcan sin vida,* sus espíritus siguen votando... y hoy me señalan a mí*." />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">

@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import AuthModal from './AuthModal';
 import Button from './Button';
 import HeaderLink from './HeaderLink';
+import { Key } from 'lucide-react';
 
 const Layout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -32,7 +33,7 @@ const Layout = () => {
               </h1>
             </Link>
 
-            <nav className="hidden md:flex gap-6 ml-8 mt-2 items-center flex-wrap">
+            <nav className="hidden lg:flex gap-6 ml-8 mt-2 items-center flex-wrap">
               <HeaderLink to="/grimorio">Grimorio</HeaderLink>
               <HeaderLink to="/escrituras">Códice</HeaderLink>
               <HeaderLink to="/plaza">Plaza</HeaderLink>
@@ -42,32 +43,53 @@ const Layout = () => {
             </nav>
           </div>
 
-          <div className="flex items-center gap-6">
-            {/* Desktop Profile / Login */}
+          <div className="flex items-center gap-4 md:gap-6">
+            {/* Profile / Login */}
             {isAuthenticated && user ? (
-              <Link to="/profile" className="hidden md:flex items-center gap-4 hover:bg-surface-container-low p-2 pr-6 rounded-full ring-1 ring-outline-ghost transition-all cursor-pointer group shadow-md" aria-label="Perfil de usuario">
-                <div className="w-12 h-12 rounded-full bg-theme-container flex items-center justify-center ring-1 ring-theme-main/50 group-hover:ring-theme-main shadow-[0_0_8px_rgba(var(--color-theme-main),0.2)] transition-all overflow-hidden">
-                  <img src={user.profilePicture || "/avatar.png"} alt="Avatar del usuario" className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" />
-                </div>
-                <div className="flex flex-col items-start leading-tight">
-                  <span className="text-lg font-display font-medium text-on-surface group-hover:text-theme-main transition-colors">{user.username}</span>
-                  <span className="text-sm font-body text-on-surface-muted opacity-80 italic">
-                    {user.roles && user.roles.length > 0
-                      ? user.roles.map(r => r === 'admin' ? 'Administrador' : r.charAt(0).toUpperCase() + r.slice(1)).join(' / ')
-                      : 'Adepto'}
-                  </span>
-                </div>
-              </Link>
+              <>
+                {/* Desktop Full Profile */}
+                <Link to="/profile" className="hidden lg:flex items-center gap-4 hover:bg-surface-container-low p-2 pr-6 rounded-full ring-1 ring-outline-ghost transition-all cursor-pointer group shadow-md" aria-label="Perfil de usuario">
+                  <div className="w-12 h-12 rounded-full bg-theme-container flex items-center justify-center ring-1 ring-theme-main/50 group-hover:ring-theme-main shadow-[0_0_8px_rgba(var(--color-theme-main),0.2)] transition-all overflow-hidden">
+                    <img src={user.profilePicture || "/avatar.png"} alt="Avatar del usuario" className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <div className="flex flex-col items-start leading-tight">
+                    <span className="text-lg font-display font-medium text-on-surface group-hover:text-theme-main transition-colors">{user.username}</span>
+                    <span className="text-sm font-body text-on-surface-muted opacity-80 italic">
+                      {user.roles && user.roles.length > 0
+                        ? user.roles.map(r => r === 'admin' ? 'Administrador' : r.charAt(0).toUpperCase() + r.slice(1)).join(' / ')
+                        : 'Adepto'}
+                    </span>
+                  </div>
+                </Link>
+                {/* Mobile / Tablet Avatar Only */}
+                <Link to="/profile" className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-theme-container ring-1 ring-theme-main/50 hover:ring-theme-main shadow-[0_0_8px_rgba(var(--color-theme-main),0.2)] overflow-hidden shrink-0" aria-label="Perfil de usuario">
+                  <img src={user.profilePicture || "/avatar.png"} alt="Avatar del usuario" className="w-full h-full object-cover opacity-90 transition-opacity" />
+                </Link>
+              </>
             ) : (
-              <Button onClick={() => setIsAuthModalOpen(true)} variant="primary" className="hidden md:flex px-6 py-2">
-                Identificarse
-              </Button>
+              <>
+                {/* Desktop Login Button */}
+                <div className="hidden lg:block">
+                  <Button onClick={() => setIsAuthModalOpen(true)} variant="primary" className="px-6 py-2">
+                    Identificarse
+                  </Button>
+                </div>
+                {/* Mobile / Tablet Key Button */}
+                <button
+                  onClick={() => setIsAuthModalOpen(true)}
+                  className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full border border-outline-ghost hover:border-theme-main/50 text-theme-main bg-theme-container/50 hover:bg-theme-container transition-all shrink-0 cursor-pointer"
+                  title="Identificarse"
+                  aria-label="Identificarse"
+                >
+                  <Key className="w-5 h-5" />
+                </button>
+              </>
             )}
 
             {/* Mobile Hamburger Button */}
             <button
               onClick={toggleMenu}
-              className="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 focus:outline-none z-[60]"
+              className="lg:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 focus:outline-none z-[60]"
               aria-label="Abrir menú"
             >
               <span className={`block w-6 h-0.5 bg-theme-main transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
@@ -80,13 +102,13 @@ const Layout = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-background/80 backdrop-blur-md z-[50] transition-opacity duration-300 md:hidden ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed inset-0 bg-background/80 backdrop-blur-md z-[50] transition-opacity duration-300 lg:hidden ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         onClick={closeMenu}
       ></div>
 
       {/* Mobile Side Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-3/4 max-w-sm bg-theme-container border-l border-outline-ghost shadow-2xl z-[55] transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed top-0 right-0 h-full w-3/4 max-w-sm bg-theme-container border-l border-outline-ghost shadow-2xl z-[55] transform transition-transform duration-300 ease-in-out lg:hidden flex flex-col ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <div className="p-6 pt-24 flex flex-col h-full overflow-y-auto">
           {/* Profile Section in Mobile Menu */}
