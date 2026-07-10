@@ -5,12 +5,13 @@ import PageHeader from '../components/PageHeader';
 const Calendario = () => {
   return (
     <div className="flex flex-col w-full min-h-[80vh]">
-      <PageHeader 
-        title="El Calendario de Sacrificios" 
-        imageSrc="/about_banner_wide.jpg" 
-        imageAlt="Dark Library" 
+      <PageHeader
+        title="El Calendario de Sacrificios"
+        imageSrc="/about_banner_wide.jpg"
+        imageAlt="Dark Library"
+        maxWidthClass="max-w-3xl"
       />
-      
+
       {/* Main Container */}
       <div className="max-w-3xl w-full mx-auto px-0 md:px-8 py-4 md:py-10 relative z-20 -mt-20 flex-1">
         <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost rounded-none md:rounded shadow-none md:shadow-2xl px-4 py-6 md:p-10 relative text-center flex flex-col items-center">
@@ -23,7 +24,7 @@ const Calendario = () => {
           </div>
 
           <h3 className="text-3xl font-display text-theme-main mb-4">Calendario en Preparación</h3>
-          
+
           <p className="text-on-surface-muted text-lg font-body leading-relaxed max-w-lg mb-8">
             Nuestros Storytellers están alineando los astros para programar las próximas noches de juego. Los rituales de invocación y los horarios de las partidas principales se revelarán al Culto muy pronto.
           </p>

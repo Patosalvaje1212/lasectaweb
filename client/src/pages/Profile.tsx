@@ -24,7 +24,7 @@ const Profile = () => {
     logout();
     navigate('/');
   };
-  
+
   const [formData, setFormData] = useState({
     realName: '',
     botcUsername: '',
@@ -54,7 +54,7 @@ const Profile = () => {
       } else {
         setCustomAvatar(null);
       }
-      
+
       if (token) {
         fetchMyRequests();
       }
@@ -166,15 +166,15 @@ const Profile = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <PageHeader 
-        title={`El Grimorio de ${user.username}`} 
-        imageSrc="/moon_banner_wide.jpg" 
-        imageAlt="Bosque Oscuro y Luna" 
+      <PageHeader
+        title={`El Grimorio de ${user.username}`}
+        imageSrc="/moon_banner_wide.jpg"
+        imageAlt="Bosque Oscuro y Luna"
       />
-      
+
       <div className="max-w-5xl w-full mx-auto px-0 md:px-8 py-4 md:py-10 relative z-20 -mt-20">
         <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost rounded-none md:rounded shadow-none md:shadow-2xl px-4 py-6 md:p-10 relative">
-          
+
           <div className="flex md:absolute md:top-10 md:right-10 gap-3 mb-8 md:mb-0 justify-end w-full md:w-auto flex-wrap md:flex-nowrap z-20">
             {!isEditing && (
               <Button onClick={handleLogout} variant="danger" className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium shadow-sm transition-colors border-none">
@@ -194,10 +194,10 @@ const Profile = () => {
 
           <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 md:gap-8 mb-8">
             <div className="w-32 h-32 rounded-full overflow-hidden border border-outline-ghost shadow-md flex-shrink-0 bg-background ring-2 ring-theme-main/50">
-              <img 
-                src={isEditing ? (formData.profilePicture || "/avatar.png") : (user.profilePicture || "/avatar.png")} 
-                alt="Avatar" 
-                className="w-full h-full object-cover grayscale-[0.2] transition-all duration-700" 
+              <img
+                src={isEditing ? (formData.profilePicture || "/avatar.png") : (user.profilePicture || "/avatar.png")}
+                alt="Avatar"
+                className="w-full h-full object-cover grayscale-[0.2] transition-all duration-700"
               />
             </div>
             <div className="flex flex-col justify-center items-center sm:items-start gap-2">
@@ -210,7 +210,7 @@ const Profile = () => {
               </span>
             </div>
           </div>
-    
+
           {error && <div className="bg-red-500/10 border border-red-500/50 text-red-500 p-3 rounded mb-6 text-sm font-body">{error}</div>}
           {success && <div className="bg-green-500/10 border border-green-500/50 text-green-500 p-3 rounded mb-6 text-sm font-body">{success}</div>}
 
@@ -313,7 +313,7 @@ const Profile = () => {
                   <input name="telegramUsername" value={formData.telegramUsername} onChange={handleChange} className="bg-surface border border-outline-ghost rounded px-3 py-2 text-on-surface focus:outline-none focus:border-theme-main transition-colors" />
                 </div>
               </div>
-              
+
               <div className="flex flex-col gap-2 mt-4 mb-6">
                 <label className="text-sm font-display text-on-surface-muted">Selecciona tu Avatar</label>
                 <div className="flex gap-3 overflow-x-auto pb-2 pt-1">
@@ -333,16 +333,16 @@ const Profile = () => {
                       )}
                     </Button>
                   ))}
-                  
+
                   {/* Custom upload option */}
                   <label className="relative w-16 h-16 rounded overflow-hidden flex-shrink-0 transition-all flex flex-col justify-center items-center border border-dashed border-outline-ghost hover:border-theme-main cursor-pointer opacity-70 hover:opacity-100 bg-surface-low">
                     <Plus size={20} className="text-on-surface-muted" />
                     <span className="text-[9px] font-display uppercase mt-1">Subir</span>
-                    <input 
-                      type="file" 
-                      accept="image/*" 
-                      className="hidden" 
-                      onChange={handleFileChange} 
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={handleFileChange}
                     />
                   </label>
                 </div>

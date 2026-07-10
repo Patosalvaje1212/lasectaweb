@@ -5,10 +5,10 @@ import PageHeader from '../components/PageHeader';
 const Grimorio = () => {
   return (
     <div className="flex flex-col w-full">
-      <PageHeader 
-        title="El Grimorio" 
-        imageSrc="/calendar_banner_wide.jpg" 
-        imageAlt="Calendario" 
+      <PageHeader
+        title="El Grimorio"
+        imageSrc="/calendar_banner_wide.jpg"
+        imageAlt="Calendario"
       />
       <div className="max-w-5xl w-full mx-auto px-0 md:px-8 py-4 md:py-10 relative z-20 -mt-20">
         <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost rounded-none md:rounded shadow-none md:shadow-2xl px-4 py-6 md:p-10 md:pt-8 relative">

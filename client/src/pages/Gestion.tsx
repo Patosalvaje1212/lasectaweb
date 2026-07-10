@@ -46,9 +46,9 @@ const Gestion = () => {
     try {
       setLoading(true);
       setError('');
-      
+
       const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api';
-      
+
       // Obtener usuarios
       const usersRes = await fetch(`${apiUrl}/auth/users`, {
         headers: { 'Authorization': `Bearer ${token}` }
@@ -79,7 +79,7 @@ const Gestion = () => {
       navigate('/');
       return;
     }
-    
+
     if (user && !hasAccess) {
       navigate('/profile');
       return;
@@ -104,7 +104,7 @@ const Gestion = () => {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'No se pudo resolver la solicitud.');
-      
+
       setSuccess(approve ? 'Solicitud aprobada con éxito.' : 'Solicitud rechazada con éxito.');
       fetchUsersAndRequests();
     } catch (err: any) {
@@ -167,15 +167,16 @@ const Gestion = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <PageHeader 
-        title="Panel de Gestión" 
-        imageSrc="/profile_banner_wide.jpg" 
-        imageAlt="Códice y Velas" 
+      <PageHeader
+        title="Panel de Gestión"
+        imageSrc="/profile_banner_wide.jpg"
+        imageAlt="Códice y Velas"
+        maxWidthClass="max-w-7xl"
       />
 
       <div className="max-w-7xl w-full mx-auto px-0 md:px-6 py-4 md:py-10 relative z-20 -mt-20">
         <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost rounded-none md:rounded shadow-none md:shadow-2xl p-4 md:p-10">
-          
+
           <h2 className="text-2xl font-display font-medium text-white mb-8 border-b border-outline-ghost pb-4">
             Gestión de Adeptos y Jerarquía
           </h2>
@@ -199,7 +200,7 @@ const Gestion = () => {
                 <span className="w-2 h-2 rounded-full bg-theme-main"></span>
                 Rituales de Ascenso Pendientes
               </h3>
-              
+
               {requests.length === 0 ? (
                 <div className="bg-surface-low border border-dashed border-outline-ghost p-6 rounded text-center text-on-surface-muted italic font-body">
                   No hay deliberaciones ni solicitudes de rango pendientes en este ciclo de luna.
@@ -211,7 +212,7 @@ const Gestion = () => {
                       <div className="absolute top-0 right-0 bg-theme-ritual-container text-theme-main px-3 py-1 text-xs font-display border-b border-l border-theme-main/30">
                         {req.requestedRole === 'editor' ? 'Conocimiento de Editor' : 'Rango de Narrador'}
                       </div>
-                      
+
                       <div className="flex gap-4 items-center">
                         <div className="flex flex-col">
                           <p className="font-display text-lg text-white font-medium">{req.realName || req.username}</p>
@@ -223,16 +224,16 @@ const Gestion = () => {
                       </div>
 
                       <div className="flex gap-3 mt-2 border-t border-outline-ghost/30 pt-3">
-                        <Button 
-                          onClick={() => handleResolveRequest(req.id, true)} 
-                          variant="success" 
+                        <Button
+                          onClick={() => handleResolveRequest(req.id, true)}
+                          variant="success"
                           className="flex-1 py-1.5 text-sm gap-1.5"
                         >
                           <Check size={16} /> Conceder
                         </Button>
-                        <Button 
-                          onClick={() => handleResolveRequest(req.id, false)} 
-                          variant="danger" 
+                        <Button
+                          onClick={() => handleResolveRequest(req.id, false)}
+                          variant="danger"
                           className="flex-1 py-1.5 text-sm gap-1.5"
                         >
                           <X size={16} /> Denegar
@@ -285,11 +286,10 @@ const Gestion = () => {
                           <button
                             disabled={isEditor && !isAdmin && !isNarrador}
                             onClick={() => handleToggleRole(u, 'editor')}
-                            className={`inline-flex items-center justify-center p-2 rounded border transition-all ${
-                              u.roles.includes('editor') 
-                                ? 'bg-theme-ritual-container border-theme-main text-theme-main shadow-md' 
+                            className={`inline-flex items-center justify-center p-2 rounded border transition-all ${u.roles.includes('editor')
+                                ? 'bg-theme-ritual-container border-theme-main text-theme-main shadow-md'
                                 : 'border-outline-ghost text-on-surface-muted hover:border-theme-main/50'
-                            } disabled:opacity-40 disabled:hover:border-outline-ghost disabled:cursor-not-allowed`}
+                              } disabled:opacity-40 disabled:hover:border-outline-ghost disabled:cursor-not-allowed`}
                             title="Conceder/Revocar permiso de Editor"
                           >
                             <BookOpen size={18} />
@@ -301,11 +301,10 @@ const Gestion = () => {
                           <button
                             disabled={isEditor && !isAdmin && !isNarrador}
                             onClick={() => handleToggleRole(u, 'narrador')}
-                            className={`inline-flex items-center justify-center p-2 rounded border transition-all ${
-                              u.roles.includes('narrador') 
-                                ? 'bg-theme-ritual-container border-theme-main text-theme-main shadow-md' 
+                            className={`inline-flex items-center justify-center p-2 rounded border transition-all ${u.roles.includes('narrador')
+                                ? 'bg-theme-ritual-container border-theme-main text-theme-main shadow-md'
                                 : 'border-outline-ghost text-on-surface-muted hover:border-theme-main/50'
-                            } disabled:opacity-40 disabled:hover:border-outline-ghost disabled:cursor-not-allowed`}
+                              } disabled:opacity-40 disabled:hover:border-outline-ghost disabled:cursor-not-allowed`}
                             title="Conceder/Revocar permiso de Narrador"
                           >
                             <Shield size={18} />
@@ -317,11 +316,10 @@ const Gestion = () => {
                           <button
                             disabled={!isAdmin} // Only admins can change administrator role
                             onClick={() => handleToggleRole(u, 'admin')}
-                            className={`inline-flex items-center justify-center p-2 rounded border transition-all ${
-                              u.roles.includes('admin') 
-                                ? 'bg-red-950/40 border-red-500 text-red-400 shadow-md shadow-red-500/10' 
+                            className={`inline-flex items-center justify-center p-2 rounded border transition-all ${u.roles.includes('admin')
+                                ? 'bg-red-950/40 border-red-500 text-red-400 shadow-md shadow-red-500/10'
                                 : 'border-outline-ghost text-on-surface-muted hover:border-red-500/50'
-                            } disabled:opacity-40 disabled:hover:border-outline-ghost disabled:cursor-not-allowed`}
+                              } disabled:opacity-40 disabled:hover:border-outline-ghost disabled:cursor-not-allowed`}
                             title="Conceder/Revocar permiso de Administrador"
                           >
                             <UserIcon size={18} />

@@ -5,11 +5,11 @@ import PageHeader from '../components/PageHeader';
 const Atrio = () => {
   return (
     <div className="flex flex-col w-full">
-      <PageHeader 
-        title="El Atrio" 
-        imageSrc="/banner_wide.jpg" 
-        imageAlt="El Atrio" 
-        imageOpacity="opacity-70" 
+      <PageHeader
+        title="El Atrio"
+        imageSrc="/banner_wide.jpg"
+        imageAlt="El Atrio"
+        imageOpacity="opacity-70"
       />
       <div className="max-w-5xl w-full mx-auto px-0 md:px-8 py-4 md:py-10 relative z-20 -mt-20">
         <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost rounded-none md:rounded shadow-none md:shadow-2xl px-4 py-6 md:p-10 md:pt-8 relative">
@@ -20,11 +20,11 @@ const Atrio = () => {
             </p>
           </div>
           <div className="flex justify-center w-full mt-4">
-            <Button 
+            <Button
               variant="primary"
-              href="https://t.me/+bHZ62RndFQI1MmJk" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href="https://t.me/+bHZ62RndFQI1MmJk"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-10 py-4 text-lg relative z-20"
             >
               Únete a la Secta

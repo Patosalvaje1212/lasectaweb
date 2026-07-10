@@ -46,15 +46,16 @@ const Confirmar = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <PageHeader 
-        title="Confirmación de Cuenta" 
-        imageSrc="/moon_banner_wide.jpg" 
-        imageAlt="Portal a La Secta" 
+      <PageHeader
+        title="Confirmación de Cuenta"
+        imageSrc="/moon_banner_wide.jpg"
+        imageAlt="Portal a La Secta"
+        maxWidthClass="max-w-xl"
       />
-      
+
       <div className="max-w-xl w-full mx-auto px-0 md:px-8 py-4 md:py-10 relative z-20 -mt-20">
         <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost p-4 md:p-10 rounded-none md:rounded shadow-none md:shadow-2xl relative text-center flex flex-col gap-6">
-          
+
           <Cita texto="Tu alma ha sido convocada. Los registros del grimorio aguardan." />
 
           {status === 'loading' && (
@@ -73,9 +74,9 @@ const Confirmar = () => {
               <p className="text-on-surface-muted font-body text-sm leading-relaxed">
                 {message}
               </p>
-              <Button 
-                onClick={() => navigate('/')} 
-                variant="primary" 
+              <Button
+                onClick={() => navigate('/')}
+                variant="primary"
                 className="w-full mt-4 py-3"
               >
                 Ir al Inicio e Identificarse
@@ -92,9 +93,9 @@ const Confirmar = () => {
               <p className="text-red-500 font-body text-sm leading-relaxed">
                 {message}
               </p>
-              <Button 
-                onClick={() => navigate('/')} 
-                variant="secondary" 
+              <Button
+                onClick={() => navigate('/')}
+                variant="secondary"
                 className="w-full mt-4 py-3"
               >
                 Volver al Inicio

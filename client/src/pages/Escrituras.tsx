@@ -92,14 +92,14 @@ const Escrituras = () => {
         }
       `}</style>
 
-      <PageHeader 
-        title="El Códice" 
-        subtitle="El compendio de leyes y normas de convivencia que rigen la comunidad de La Secta." 
-        imageSrc="/rules_banner_wide.jpg" 
-        imageAlt="Grimoire Rules" 
-        bgClass="bg-black" 
-        gradientClass="from-black" 
-        maxWidthClass="max-w-7xl" 
+      <PageHeader
+        title="El Códice"
+        subtitle="El compendio de leyes y normas de convivencia que rigen la comunidad de La Secta."
+        imageSrc="/rules_banner_wide.jpg"
+        imageAlt="Grimoire Rules"
+        bgClass="bg-black"
+        gradientClass="from-black"
+        maxWidthClass="max-w-7xl"
       />
 
       {/* Main Layout Container */}
