@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, NavLink, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import AuthModal from './AuthModal';
 import Button from './Button';
@@ -10,6 +10,9 @@ const Layout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { user, isAuthenticated, logout } = useAuth();
+  const location = useLocation();
+
+  const logoTarget = location.pathname === '/' ? '/unete' : '/';
 
   const hasAccessToGestion = !!(isAuthenticated && user && user.roles && (
     user.roles.includes('admin') || 
@@ -26,7 +29,7 @@ const Layout = () => {
       <header className="fixed top-0 w-full z-40 bg-theme-container backdrop-blur-sm border-b border-outline-ghost shadow-lg">
         <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:py-6 md:px-10">
           <div className="flex items-center gap-4 md:gap-6">
-            <Link to="/" className="flex items-center gap-1.5 md:gap-2" onClick={closeMenu}>
+            <Link to={logoTarget} className="flex items-center gap-1.5 md:gap-2" onClick={closeMenu}>
               <img src="/log_la-secta.png" alt="Logo de La Secta" className="w-12 h-12 md:w-16 md:h-16 object-contain drop-shadow-[0_0_12px_var(--color-theme-main)]" />
               <h1 className="text-2xl md:text-4xl font-normal tracking-tight text-white drop-shadow-lg whitespace-nowrap" style={{ fontFamily: "'Teutonic No1', 'Cinzel', serif", transform: 'scaleX(0.9)', transformOrigin: 'left', display: 'inline-block' }}>
                 La Secta
@@ -39,7 +42,6 @@ const Layout = () => {
               <HeaderLink to="/plaza">Plaza</HeaderLink>
               <HeaderLink to="/calendario">Calendario</HeaderLink>
               {hasAccessToGestion && <HeaderLink to="/gestion">Gestión</HeaderLink>}
-              <HeaderLink to="/unete" isSpecial>Únete</HeaderLink>
             </nav>
           </div>
 
@@ -142,26 +144,83 @@ const Layout = () => {
 
           {/* Navigation Links in Mobile Menu */}
           <nav className="flex flex-col gap-6">
-            <Link to="/grimorio" onClick={closeMenu} className="text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors flex items-center gap-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-theme-main/50"></span> Grimorio
-            </Link>
-            <Link to="/escrituras" onClick={closeMenu} className="text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors flex items-center gap-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-theme-main/50"></span> Códice
-            </Link>
-            <Link to="/plaza" onClick={closeMenu} className="text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors flex items-center gap-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-theme-main/50"></span> Plaza
-            </Link>
-            <Link to="/calendario" onClick={closeMenu} className="text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors flex items-center gap-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-theme-main/50"></span> Calendario
-            </Link>
+            <NavLink
+              to="/grimorio"
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                `text-xl font-display transition-colors flex items-center gap-4 ${
+                  isActive ? 'text-theme-main font-medium' : 'text-on-surface-muted hover:text-on-surface'
+                }`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-theme-main' : 'bg-theme-main/50'}`}></span> Grimorio
+                </>
+              )}
+            </NavLink>
+            <NavLink
+              to="/escrituras"
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                `text-xl font-display transition-colors flex items-center gap-4 ${
+                  isActive ? 'text-theme-main font-medium' : 'text-on-surface-muted hover:text-on-surface'
+                }`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-theme-main' : 'bg-theme-main/50'}`}></span> Códice
+                </>
+              )}
+            </NavLink>
+            <NavLink
+              to="/plaza"
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                `text-xl font-display transition-colors flex items-center gap-4 ${
+                  isActive ? 'text-theme-main font-medium' : 'text-on-surface-muted hover:text-on-surface'
+                }`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-theme-main' : 'bg-theme-main/50'}`}></span> Plaza
+                </>
+              )}
+            </NavLink>
+            <NavLink
+              to="/calendario"
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                `text-xl font-display transition-colors flex items-center gap-4 ${
+                  isActive ? 'text-theme-main font-medium' : 'text-on-surface-muted hover:text-on-surface'
+                }`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-theme-main' : 'bg-theme-main/50'}`}></span> Calendario
+                </>
+              )}
+            </NavLink>
             {hasAccessToGestion && (
-              <Link to="/gestion" onClick={closeMenu} className="text-xl font-display text-on-surface-muted hover:text-on-surface transition-colors flex items-center gap-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-theme-main/50"></span> Gestión
-              </Link>
+              <NavLink
+                to="/gestion"
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  `text-xl font-display transition-colors flex items-center gap-4 ${
+                    isActive ? 'text-theme-main font-medium' : 'text-on-surface-muted hover:text-on-surface'
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-theme-main' : 'bg-theme-main/50'}`}></span> Gestión
+                  </>
+                )}
+              </NavLink>
             )}
-            <Link to="/unete" onClick={closeMenu} className="text-xl font-display text-theme-main font-medium hover:text-theme-main transition-colors flex items-center gap-4 mt-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-theme-main"></span> Únete
-            </Link>
 
             {isAuthenticated && (
               <Button onClick={() => { logout(); closeMenu(); }} variant="text" className="text-xl font-display text-red-400 hover:text-red-300 transition-colors flex items-center gap-4 mt-4 text-left">
