@@ -47,7 +47,7 @@ const Gestion = () => {
       setLoading(true);
       setError('');
 
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api';
+      const apiUrl = '/api';
 
       // Obtener usuarios
       const usersRes = await fetch(`${apiUrl}/auth/users`, {
@@ -93,7 +93,7 @@ const Gestion = () => {
     setError('');
     setSuccess('');
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api';
+      const apiUrl = '/api';
       const res = await fetch(`${apiUrl}/auth/role-requests/${requestId}/resolve`, {
         method: 'PUT',
         headers: {
@@ -134,7 +134,7 @@ const Gestion = () => {
         ? targetUser.roles.filter(r => r !== roleToToggle)
         : [...targetUser.roles, roleToToggle];
 
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api';
+      const apiUrl = '/api';
       const res = await fetch(`${apiUrl}/auth/users/${targetUser.id}/roles`, {
         method: 'PUT',
         headers: {

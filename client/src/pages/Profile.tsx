@@ -66,7 +66,7 @@ const Profile = () => {
   const fetchMyRequests = async () => {
     if (!token) return;
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api';
+      const apiUrl = '/api';
       const response = await fetch(`${apiUrl}/auth/role-requests/my`, {
         headers: {
           'Authorization': `Bearer ${token}`
@@ -109,7 +109,7 @@ const Profile = () => {
     setError('');
     setSuccess('');
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api';
+      const apiUrl = '/api';
       const response = await fetch(`${apiUrl}/auth/role-request`, {
         method: 'POST',
         headers: {
@@ -140,7 +140,7 @@ const Profile = () => {
     setSuccess('');
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api';
+      const apiUrl = '/api';
       const response = await fetch(`${apiUrl}/auth/profile`, {
         method: 'PUT',
         headers: {

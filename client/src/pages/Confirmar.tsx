@@ -25,7 +25,7 @@ const Confirmar = () => {
 
     const verifyEmail = async () => {
       try {
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api';
+        const apiUrl = '/api';
         const response = await fetch(`${apiUrl}/auth/confirm?token=${token}`);
         const data = await response.json();
 
