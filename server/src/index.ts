@@ -80,6 +80,33 @@ app.post('/api/threads', threadController.create);
 app.get('/api/threads', threadController.getAll);
 app.post('/api/threads/:threadId/comments', threadController.addComment);
 
+//token
+app.get('/api/proxy/vc-get/*path', async (req, res) => {
+  const token = process.env.VILLACUERVOS_API_TOKEN;
+  const proxyPath = req.params.path.join("/"); // everything after /api/proxy/vc/
+  const targetUrl = `https://villacuervos.es/api/${proxyPath}`;
+
+  try {
+    if (typeof (globalThis as any).fetch !== 'function') {
+      return res.status(500).json({ error: 'Fetch API not available in this runtime' });
+    }
+
+    const response = await (globalThis as any).fetch(targetUrl, {
+      headers: {
+        accept: 'application/json',
+        'X-Api-Key': token,
+      },
+    });
+    
+    const data = await response.text();
+    console.log(`${targetUrl} - 1`);
+    console.log(`${data} - 2`);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: `Proxy failed: ${err}` });
+  }
+});
+
 // Initialize database then start server
 DatabaseRepository.getInstance()
   .then(async () => {

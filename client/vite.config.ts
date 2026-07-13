@@ -8,6 +8,18 @@ export default defineConfig({
   server: {
     host: '0.0.0.0', // Esto permite conexiones externas
     port: 5173,
-    allowedHosts: ['elessartinuviel.duckdns.org']
+    allowedHosts: ['elessartinuviel.duckdns.org'],
+    proxy: {
+      '/api': {
+      target: 'http://127.0.0.1:5000',
+      changeOrigin: true,
+      },
+      '/vc': {
+        target: 'http://127.0.0.1:5000/',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/vc/, '/api/proxy/vc-get'),
+      }
+    }
   }
 })
