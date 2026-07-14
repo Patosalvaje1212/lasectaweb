@@ -37,6 +37,9 @@ import { ThreadController } from './controllers/ThreadController';
 import { authenticateJWT } from './middlewares/auth';
 import { DatabaseRepository } from './repositories/DatabaseRepository';
 import { seedAdminUser } from './utils/seeder';
+import { VillacuervosRepository } from './repositories/VillacuervosRepository';
+import { VillacuervosService } from './services/VillacuervosService';
+import { VillacuervosController } from './controllers/VillacuervosController';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -57,6 +60,10 @@ const authController = new AuthController(userService);
 const threadRepository = new ThreadRepository();
 const threadService = new ThreadService(threadRepository);
 const threadController = new ThreadController(threadService);
+
+const villacuervosRepository = new VillacuervosRepository();
+const villacuervosService = new VillacuervosService(villacuervosRepository, userRepository);
+const villacuervosController = new VillacuervosController(villacuervosService);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', api: 'La Secta' });
@@ -79,6 +86,18 @@ app.put('/api/auth/users/:userId/roles', authenticateJWT as express.RequestHandl
 app.post('/api/threads', threadController.create);
 app.get('/api/threads', threadController.getAll);
 app.post('/api/threads/:threadId/comments', threadController.addComment);
+
+// Rutas de Villacuervos (Lectura pública)
+app.get('/api/villacuervos/roles', villacuervosController.getRoles);
+app.get('/api/villacuervos/roles/:key', villacuervosController.getRoleByKey);
+app.get('/api/villacuervos/jinxes', villacuervosController.getJinxes);
+app.get('/api/villacuervos/translations', villacuervosController.getTranslations);
+app.get('/api/villacuervos/translations/:slug', villacuervosController.getTranslationPack);
+
+// Rutas de Villacuervos (Escritura/Partidas - Protegidas para Narradores)
+app.get('/api/villacuervos/plays/pending', authenticateJWT as express.RequestHandler, villacuervosController.getPendingPlays as express.RequestHandler);
+app.post('/api/villacuervos/plays', authenticateJWT as express.RequestHandler, villacuervosController.createPlay as express.RequestHandler);
+app.patch('/api/villacuervos/plays/:playSlug', authenticateJWT as express.RequestHandler, villacuervosController.updatePlay as express.RequestHandler);
 
 // Initialize database then start server
 DatabaseRepository.getInstance()
