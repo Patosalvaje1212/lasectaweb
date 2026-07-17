@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Outlet, Link, NavLink, useLocation } from 'react-router-dom';
+import { Outlet, Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import AuthModal from './AuthModal';
 import Button from './Button';
@@ -10,7 +10,6 @@ const Layout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { user, isAuthenticated, logout } = useAuth();
-  const location = useLocation();
 
   const hasAccessToGestion = !!(isAuthenticated && user && user.roles && (
     user.roles.includes('admin') || 
