@@ -120,7 +120,7 @@ function MiniCalendar({ plays, narrador }: { plays: PublicPlaySchema[], narrador
                           target="_blank"
                           rel="noopener noreferrer"
                           title={`Ver partida: ${play.name}`}
-                          className="block w-full py-1 px-1.5 bg-theme-container/40 hover:bg-theme-main/30 text-theme-main border border-theme-main/30 hover:border-theme-main rounded text-xs font-semibold text-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm"
+                          className="block w-full py-1 px-1.5 bg-theme-container/40 hover:bg-theme-main/30 text-theme-main border border-theme-main/30 hover:border-theme-main rounded text-sm font-semibold text-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm"
                         >
                           {playTime}
                         </a>
