@@ -30,7 +30,7 @@ const Layout = () => {
         <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:py-6 md:px-10">
           <div className="flex items-center gap-4 md:gap-6">
             <Link to={logoTarget} className="flex items-center gap-1.5 md:gap-2" onClick={closeMenu}>
-              <img src="/log_la-secta.png" alt="Logo de La Secta" className="w-12 h-12 md:w-16 md:h-16 object-contain drop-shadow-[0_0_12px_var(--color-theme-main)]" />
+              <img src="/logo-2.png" alt="Logo de La Secta" className="w-12 h-12 md:w-16 md:h-16 object-contain drop-shadow-[0_0_12px_var(--color-theme-main)]" />
               <h1 className="text-2xl md:text-4xl font-normal tracking-tight text-white drop-shadow-lg whitespace-nowrap" style={{ fontFamily: "'Teutonic No1', 'Cinzel', serif", transform: 'scaleX(0.9)', transformOrigin: 'left', display: 'inline-block' }}>
                 La Secta
               </h1>
@@ -230,7 +230,7 @@ const Layout = () => {
           </nav>
 
           <div className="mt-auto pt-8 flex justify-center opacity-50">
-            <img src="/log_la-secta.png" alt="La Secta Decoración" className="w-16 h-16 object-contain grayscale" />
+            <img src="/logo-2.png" alt="La Secta Decoración" className="w-16 h-16 object-contain grayscale" />
           </div>
         </div>
       </div>
