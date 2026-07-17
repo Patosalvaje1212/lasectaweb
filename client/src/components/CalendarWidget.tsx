@@ -51,8 +51,8 @@ function isSameDay(dateStr: string, target: Date): boolean {
   );
 }
 
-function MiniCalendar({ plays, narrador }: { plays: PublicPlaySchema[], narrador:boolean }) {
-  const days = getNextDays(new Date(), 8);
+function MiniCalendar({ plays, narrador }: { plays: PublicPlaySchema[], narrador: boolean }) {
+  const days = getNextDays(new Date(), 7);
 
   const getWeekStart = (date: Date): Date => {
     const d = new Date(date);
@@ -76,61 +76,66 @@ function MiniCalendar({ plays, narrador }: { plays: PublicPlaySchema[], narrador
     (a, b) => a[0].getTime() - b[0].getTime()
   );
 
-  
-
   return (
     <div className="flex flex-wrap gap-2">
       {weekGroups.map((weekDays, idx) => (
         <div
           key={idx}
-          className="flex flex-wrap gap-3 p-3 border border-outline-ghost rounded-lg bg-surface-low"
+          className="flex flex-wrap gap-3 p-3 border border-outline-ghost rounded-lg bg-surface-low items-start"
         >
           {weekDays.map((day, i) => {
             const todayGames = plays.filter((play) => isSameDay(play.date, day));
             const hasGame = todayGames.length > 0;
-            
-            const gameLink = todayGames.length == 1 ?
-              `https://villacuervos.es/partidas/la-secta/${todayGames[0].id}/${todayGames[0].slug}` :
-              'https://villacuervos.es/partidas/';
-
-            const dayElement = (
-              <div
-                key={i}
-                className={`rounded-lg p-3 text-center min-w-[80px] border ${
-                  hasGame
-                    ? 'bg-theme-container/20 border-theme-main cursor-pointer hover:bg-theme-container/60'
-                    : 'bg-surface-low border-outline-ghost'
-                }`}
-              >
-                <div className="text-xs text-on-surface-muted uppercase">
-                  {day.toLocaleDateString('es-ES', { weekday: 'short' })}
-                </div>
-                <div className="text-xl font-bold text-on-surface my-1">
-                  {day.getDate()}
-                </div>
-                {hasGame && (
-                  <div className="w-2 h-2 rounded-full bg-theme-main mx-auto mt-2" />
-                )}
-                
-              </div>
-            );
-
 
             return (
-              <div key={i} className="flex flex-col items-center justify-between h-full">
-                {
-                  hasGame ? (
-                    <Link to={gameLink} key={i} target="_blank" title="Ver Partida">
-                    {dayElement}
-                    </Link>
-                  )
-                  : ( dayElement )
-                }
+              <div
+                key={i}
+                className={`rounded-lg p-3 text-center min-w-[95px] flex flex-col border ${hasGame
+                  ? 'bg-theme-container/10 border-theme-main/50'
+                  : 'bg-surface-low/30 border-outline-ghost/50 opacity-70'
+                  }`}
+              >
+                <div className="flex items-baseline justify-center gap-1.5 border-b border-outline-ghost/30 pb-1.5 mb-1.5 w-full">
+                  <span className="text-xs text-on-surface-muted uppercase tracking-wider font-semibold">
+                    {day.toLocaleDateString('es-ES', { weekday: 'short' })}
+                  </span>
+                  <span className="text-lg font-bold text-on-surface">
+                    {day.getDate()}
+                  </span>
+                </div>
+
+                {hasGame && (
+                  <div className="flex flex-col gap-1.5 mt-1.5 w-full">
+                    {todayGames.map((play) => {
+                      const playTime = new Date(play.date).toLocaleTimeString('es-ES', {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                      });
+                      const playLink = `https://villacuervos.es/partidas/la-secta/${play.id}/${play.slug}`;
+
+                      return (
+                        <a
+                          key={play.id}
+                          href={playLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title={`Ver partida: ${play.name}`}
+                          className="block w-full py-1 px-1.5 bg-theme-container/40 hover:bg-theme-main/30 text-theme-main border border-theme-main/30 hover:border-theme-main rounded text-xs font-semibold text-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm"
+                        >
+                          {playTime}
+                        </a>
+                      );
+                    })}
+                  </div>
+                )}
+
                 {narrador && (
-                  <Link to="/calendario" title="Añadir nueva partida" className="mt-4 text-theme-main/80 hover:text-theme-main">
-                    
-                    <CirclePlus size={24}/>
-                    
+                  <Link
+                    to="/calendario"
+                    title="Añadir nueva partida"
+                    className="mt-3 text-theme-main/70 hover:text-theme-main transition-colors flex justify-center"
+                  >
+                    <CirclePlus size={20} />
                   </Link>
                 )}
               </div>
@@ -138,16 +143,7 @@ function MiniCalendar({ plays, narrador }: { plays: PublicPlaySchema[], narrador
           })}
         </div>
       ))}
-      <div className="w-full flex justify-center">
-      <div className="flex items-center text-medium text-on-surface-muted">
-        <span className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-theme-main inline-block" />
-          <span>Hay partida</span>
-        </span>
-      </div>
     </div>
-    </div>
-
   );
 }
 
@@ -171,5 +167,5 @@ export default function CalendarWidget() {
   if (loading) return <p>Loading calendar…</p>;
   if (error) return <p>Error: {error}</p>;
 
-  return <MiniCalendar plays={plays} narrador={isNarrador}/>;
+  return <MiniCalendar plays={plays} narrador={isNarrador} />;
 }
