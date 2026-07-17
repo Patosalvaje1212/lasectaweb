@@ -27,10 +27,10 @@ const Layout = () => {
     <div className="min-h-screen flex flex-col selection:bg-theme-main selection:text-background overflow-x-clip">
       {/* Dark Textured Header */}
       <header className="fixed top-0 w-full z-40 bg-theme-container backdrop-blur-sm border-b border-outline-ghost shadow-lg">
-        <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:py-6 md:px-10">
+        <div className="max-w-7xl mx-auto flex justify-between items-center py-2 px-6 md:py-3 md:px-10">
           <div className="flex items-center gap-4 md:gap-6">
             <Link to={logoTarget} className="flex items-center gap-1.5 md:gap-2" onClick={closeMenu}>
-              <img src="/logo-2.png" alt="Logo de La Secta" className="w-12 h-12 md:w-16 md:h-16 object-contain drop-shadow-[0_0_12px_var(--color-theme-main)]" />
+              <img src="/logo-2.png" alt="Logo de La Secta" className="w-24 h-24 object-contain drop-shadow-[0_0_12px_var(--color-theme-main)]" />
               <h1 className="text-2xl md:text-4xl font-normal tracking-tight text-white drop-shadow-lg whitespace-nowrap" style={{ fontFamily: "'Teutonic No1', 'Cinzel', serif", transform: 'scaleX(0.9)', transformOrigin: 'left', display: 'inline-block' }}>
                 La Secta
               </h1>
@@ -236,7 +236,7 @@ const Layout = () => {
       </div>
 
       {/* Main Container - Full Width */}
-      <main className="flex-1 w-full pt-[90px] md:pt-[116px] pb-16 relative">
+      <main className="flex-1 w-full pt-[112px] md:pt-[128px] pb-16 relative">
         <Outlet />
       </main>
 
