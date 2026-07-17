@@ -42,8 +42,8 @@ const Atrio: React.FC = () => {
             />
 
       <div className="max-w-7xl w-full mx-auto px-0 md:px-8 py-10 relative z-20 -mt-20">
-        <div className="flex flex-col md:flex-row gap-6 items-start">
-          <div className="flex-1 min-w-0">
+        <div className="flex flex-col md:flex-row gap-6 md:items-start">
+          <div className="flex-1 min-w-0 w-full">
             <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost p-4 md:p-10 rounded-none md:rounded shadow-none md:shadow-2xl relative space-y-8">
               
               <Cita texto="Ven, siéntate al borde del abismo. Contaremos historias sobre los condenados, *y uno de nostros no mentirá al hacerlo*." />
