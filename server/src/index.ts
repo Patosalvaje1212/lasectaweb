@@ -95,7 +95,7 @@ app.get('/api/villacuervos/translations', villacuervosController.getTranslations
 app.get('/api/villacuervos/translations/:slug', villacuervosController.getTranslationPack);
 
 // Rutas de Villacuervos (Escritura/Partidas - Protegidas para Narradores)
-app.get('/api/villacuervos/plays/pending', authenticateJWT as express.RequestHandler, villacuervosController.getPendingPlays as express.RequestHandler);
+app.get('/api/villacuervos/plays/pending', villacuervosController.getPendingPlays as express.RequestHandler);
 app.post('/api/villacuervos/plays', authenticateJWT as express.RequestHandler, villacuervosController.createPlay as express.RequestHandler);
 app.patch('/api/villacuervos/plays/:playSlug', authenticateJWT as express.RequestHandler, villacuervosController.updatePlay as express.RequestHandler);
 

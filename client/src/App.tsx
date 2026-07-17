@@ -9,6 +9,7 @@ import Calendario from './pages/Calendario';
 import Unete from './pages/Unete';
 import Confirmar from './pages/Confirmar';
 import Gestion from './pages/Gestion';
+import Landing from './pages/Landing';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="confirmar" element={<Confirmar />} />
           <Route path="gestion" element={<Gestion />} />
+          <Route path="landing" element={<Landing />} />
         </Route>
       </Routes>
     </BrowserRouter>
