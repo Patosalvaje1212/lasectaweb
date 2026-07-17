@@ -50,8 +50,7 @@ export class VillacuervosService {
     return await this.villacuervosRepository.getTranslationsBySlug(slug, genre, markedGenres);
   }
 
-  async getPendingPlays(userId: string): Promise<PublicPlaySchema[]> {
-    await this.checkNarradorPermission(userId);
+  async getPendingPlays(): Promise<PublicPlaySchema[]> {
     const cultSlug = process.env.VILLACUERVOS_CULT_SLUG;
     if (!cultSlug) {
       throw new Error('La variable VILLACUERVOS_CULT_SLUG no está configurada.');

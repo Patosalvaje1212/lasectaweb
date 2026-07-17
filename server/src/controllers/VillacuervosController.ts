@@ -61,11 +61,7 @@ export class VillacuervosController {
 
   getPendingPlays = async (req: AuthRequest, res: Response): Promise<void> => {
     try {
-      if (!req.user) {
-        res.status(401).json({ error: 'No autorizado' });
-        return;
-      }
-      const plays = await this.villacuervosService.getPendingPlays(req.user.id);
+      const plays = await this.villacuervosService.getPendingPlays();
       res.status(200).json(plays);
     } catch (error: any) {
       const isForbidden = error.message.includes('Acceso denegado');
