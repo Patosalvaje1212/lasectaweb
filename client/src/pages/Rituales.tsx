@@ -2,11 +2,11 @@ import Button from '../components/Button';
 import { Hourglass } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 
-const Calendario = () => {
+const Rituales = () => {
   return (
     <div className="flex flex-col w-full min-h-[80vh]">
       <PageHeader
-        title="El Calendario de Sacrificios"
+        title="Rituales"
         imageSrc="/about_banner_wide.jpg"
         imageAlt="Dark Library"
         maxWidthClass="max-w-3xl"
@@ -23,7 +23,7 @@ const Calendario = () => {
             </div>
           </div>
 
-          <h3 className="text-3xl font-display text-theme-main mb-4">Calendario en Preparación</h3>
+          <h3 className="text-3xl font-display text-theme-main mb-4">Rituales en Preparación</h3>
 
           <p className="text-on-surface-muted text-lg font-body leading-relaxed max-w-lg mb-8">
             Nuestros Storytellers están alineando los astros para programar las próximas noches de juego. Los rituales de invocación y los horarios de las partidas principales se revelarán al Culto muy pronto.
@@ -43,4 +43,4 @@ const Calendario = () => {
   );
 };
 
-export default Calendario;
+export default Rituales;

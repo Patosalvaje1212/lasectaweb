@@ -273,7 +273,7 @@ const Profile = () => {
                         <p className="text-sm font-body text-on-surface-muted mt-1">
                           {(user.roles || []).includes('narrador')
                             ? 'Ya posees el rango de Narrador.'
-                            : 'Permite convocar rituales, guiar el calendario e influir en el destino de los adeptos.'}
+                            : 'Permite convocar rituales, guiar los rituales e influir en el destino de los adeptos.'}
                         </p>
                       </div>
                       <div className="shrink-0">

@@ -131,7 +131,7 @@ function MiniCalendar({ plays, narrador }: { plays: PublicPlaySchema[], narrador
 
                 {narrador && (
                   <Link
-                    to="/calendario"
+                    to="/rituales"
                     title="Añadir nueva partida"
                     className="mt-3 text-theme-main/70 hover:text-theme-main transition-colors flex justify-center"
                   >

@@ -2,13 +2,13 @@ import Button from '../components/Button';
 import Cita from '../components/Cita';
 import PageHeader from '../components/PageHeader';
 
-const Unete = () => {
+const Redes = () => {
   return (
     <div className="flex flex-col w-full">
       <PageHeader
-        title="Únete al Culto"
+        title="Redes"
         imageSrc="/join_banner_wide.jpg"
-        imageAlt="Blood Pact"
+        imageAlt="Redes Sociales"
         maxWidthClass="max-w-4xl"
       />
 
@@ -161,4 +161,4 @@ const Unete = () => {
   );
 };
 
-export default Unete;
+export default Redes;

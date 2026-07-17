@@ -423,7 +423,7 @@ const Escrituras = () => {
                   <span>El alta de la cuenta dependerá de que se cumplan los 2 puntos siguientes, en cuanto uno de los 2 no se cumpla se procederá al cambio en el estado de la cuenta lo antes posible:</span>
                 </p>
                 <ul className="list-disc list-inside pl-6 mt-2 space-y-1.5 text-on-surface/90">
-                  <li>Durante las 4 semanas anteriores se ha debido necesitar un uso de una segunda cuenta para una segunda partida paralela al menos 4 días a la semana de media. Para la comprobación se podrá realizar <Link to="/calendario" className="text-theme-main hover:underline hover:text-theme-main/80 font-semibold transition-colors">aquí</Link>.</li>
+                  <li>Durante las 4 semanas anteriores se ha debido necesitar un uso de una segunda cuenta para una segunda partida paralela al menos 4 días a la semana de media. Para la comprobación se podrá realizar <Link to="/rituales" className="text-theme-main hover:underline hover:text-theme-main/80 font-semibold transition-colors">aquí</Link>.</li>
                   <li>La reserva económica de los pagos de la secta debe tener garantizado el pago de los próximos 6 meses incluyendo en el cálculo de costes el mantenimiento de las 2 cuentas y los variados costes de los servicios de la web.</li>
                 </ul>
 

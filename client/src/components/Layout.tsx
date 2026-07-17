@@ -12,8 +12,6 @@ const Layout = () => {
   const { user, isAuthenticated, logout } = useAuth();
   const location = useLocation();
 
-  const logoTarget = location.pathname === '/' ? '/unete' : '/';
-
   const hasAccessToGestion = !!(isAuthenticated && user && user.roles && (
     user.roles.includes('admin') || 
     user.roles.includes('narrador') || 
@@ -29,7 +27,7 @@ const Layout = () => {
       <header className="fixed top-0 w-full z-40 bg-theme-container backdrop-blur-sm border-b border-outline-ghost shadow-lg">
         <div className="max-w-7xl mx-auto flex justify-between items-center py-2 px-6 md:py-3 md:px-10">
           <div className="flex items-center gap-4 md:gap-6">
-            <Link to={logoTarget} className="flex items-center gap-1.5 md:gap-2" onClick={closeMenu}>
+            <Link to="/" className="flex items-center gap-1.5 md:gap-2" onClick={closeMenu}>
               <img src="/logo-2.png" alt="Logo de La Secta" className="w-24 h-24 object-contain drop-shadow-[0_0_12px_var(--color-theme-main)]" />
               <h1 className="text-2xl md:text-4xl font-normal tracking-tight text-white drop-shadow-lg whitespace-nowrap" style={{ fontFamily: "'Teutonic No1', 'Cinzel', serif", transform: 'scaleX(0.9)', transformOrigin: 'left', display: 'inline-block' }}>
                 La Secta
@@ -40,7 +38,8 @@ const Layout = () => {
               <HeaderLink to="/grimorio">Grimorio</HeaderLink>
               <HeaderLink to="/escrituras">Códice</HeaderLink>
               <HeaderLink to="/plaza">Plaza</HeaderLink>
-              <HeaderLink to="/calendario">Calendario</HeaderLink>
+              <HeaderLink to="/rituales">Rituales</HeaderLink>
+              <HeaderLink to="/redes">Redes</HeaderLink>
               {hasAccessToGestion && <HeaderLink to="/gestion">Gestión</HeaderLink>}
             </nav>
           </div>
@@ -190,7 +189,7 @@ const Layout = () => {
               )}
             </NavLink>
             <NavLink
-              to="/calendario"
+              to="/rituales"
               onClick={closeMenu}
               className={({ isActive }) =>
                 `text-xl font-display transition-colors flex items-center gap-4 ${
@@ -200,7 +199,22 @@ const Layout = () => {
             >
               {({ isActive }) => (
                 <>
-                  <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-theme-main' : 'bg-theme-main/50'}`}></span> Calendario
+                  <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-theme-main' : 'bg-theme-main/50'}`}></span> Rituales
+                </>
+              )}
+            </NavLink>
+            <NavLink
+              to="/redes"
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                `text-xl font-display transition-colors flex items-center gap-4 ${
+                  isActive ? 'text-theme-main font-medium' : 'text-on-surface-muted hover:text-on-surface'
+                }`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-theme-main' : 'bg-theme-main/50'}`}></span> Redes
                 </>
               )}
             </NavLink>

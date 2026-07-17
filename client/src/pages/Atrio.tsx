@@ -29,7 +29,7 @@ const Atrio: React.FC = () => {
   const quickActions = [
     { label: 'Ir a la Plaza', icon: MessageSquare, path: '/plaza', desc: 'Participa en las discusiones' },
     { label: 'Explorar Grimorio', icon: BookOpen, path: '/grimorio', desc: 'Consulta los conocimientos' },
-    { label: 'Ver Calendario', icon: Calendar, path: '/calendario', desc: 'No te pierdas los eventos' },
+    { label: 'Ver Rituales', icon: Calendar, path: '/rituales', desc: 'No te pierdas los eventos' },
   ]; 
 
   return (
@@ -48,30 +48,6 @@ const Atrio: React.FC = () => {
               
               <Cita texto="Ven, siéntate al borde del abismo. Contaremos historias sobre los condenados, *y uno de nostros no mentirá al hacerlo*." />
 
-              <div className="bg-surface border border-outline-ghost p-4 md:p-6 rounded shadow-2xl space-y-4">
-
-                <h3 className="text-xl font-display text-theme-main mb-3">Bienvenido a la página oficial de La Secta</h3>
-                <p className="text-on-surface text-base font-body leading-relaxed">
-                  La próxima ejecución está a punto de comenzar. Tu asiento en la plaza te espera.
-                </p>
-                <div className="flex justify-end">
-                  <div className="flex flex-wrap gap-3">
-                    <Link
-                      to="/unete"
-                      className="bg-theme-main/40 hover:bg-theme-container/40 text-on-surface px-4 py-2 rounded text-sm font-medium transition"
-                      >
-                      Unirse ahora
-                    </Link>
-                    <Link
-                      to="/plaza"
-                      className="border border-outline-ghost hover:bg-surface-low text-on-surface px-4 py-2 rounded text-sm font-medium transition"
-                      >
-                      Explorar
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
               {/* Calendario */}
               <div className="bg-surface-low border border-outline-ghost p-4 rounded shadow-md">
                 <div className="flex items-center justify-between mb-3">
@@ -79,8 +55,8 @@ const Atrio: React.FC = () => {
                     <Calendar size={18} /> Próximos Rituales
                   </h4>
 
-                  <Link to="/calendario" className="text-theme-main hover:text-theme-main/80 text-sm flex items-center gap-1">
-                    Ver calendario completo <ArrowRight size={14} />
+                  <Link to="/rituales" className="text-theme-main hover:text-theme-main/80 text-sm flex items-center gap-1">
+                    Ver rituales <ArrowRight size={14} />
                   </Link>
                 </div>
                 <CalendarWidgets />
