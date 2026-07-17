@@ -46,7 +46,7 @@ const Atrio: React.FC = () => {
           <div className="flex-1 min-w-0 w-full">
             <div className="bg-transparent md:bg-surface border-0 md:border border-transparent md:border-outline-ghost p-4 md:p-10 rounded-none md:rounded shadow-none md:shadow-2xl relative space-y-8">
               
-              <Cita texto="Ven, siéntate al borde del abismo. Contaremos historias sobre los condenados, *y uno de nostros no mentirá al hacerlo*." />
+              <Cita texto="Ven, siéntate al borde del abismo. Contaremos historias sobre los condenados, *y uno de nosotros no mentirá al hacerlo*." />
 
               {/* Calendario */}
               <div className="bg-surface-low border border-outline-ghost p-4 rounded shadow-md">
